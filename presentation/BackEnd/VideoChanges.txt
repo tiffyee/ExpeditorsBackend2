@@ -1,0 +1,26 @@
+New Video Schedule.  The course for Week 4 goes over the 6 hours for the week.  But i think
+it is a good foundational course, so you should spill over the extra hours into the next week.
+
+Week 4 - Java SE Fundamentals - https://app.pluralsight.com/library/courses/java-se-17-fundamentals
+
+Week 5 - Object Oriented programming in Java - https://app.pluralsight.com/library/courses/java-se-17-object-oriented-programming
+         Streams and Lambda Expressions  - https://app.pluralsight.com/library/courses/streams-lambda-expressions-java-se-11-developer-certification-1z0-819
+
+Week 6 - Spring Framework 6 Fundamentals - https://app.pluralsight.com/library/courses/spring-framework-6-fundamentals
+
+
+Week 7 - Spring Boot 3: The Big Picture - https://app.pluralsight.com/library/courses/spring-boot-3-big-picture
+         Spring Boot 3 Fundamentals - https://app.pluralsight.com/library/courses/spring-boot-3-fundamentals
+
+Week 8 - Unit testing in Spring Framework 6 with JUnit - https://app.pluralsight.com/library/courses/spring-framework-6-unit-testing-junit
+	     Validating Data Input in Spring 6 Web Application - https://app.pluralsight.com/library/courses/spring-6-validating-data-input-web-applications
+   
+
+Week 10 - SQL: Creating Tables, Selecting, Inserting, and Deleting Data (Interactive) - https://app.pluralsight.com/library/courses/sql-tables-selecting-inserting-deleting-data/table-of-contents
+         Introduction to SQL - https://app.pluralsight.com/library/courses/introduction-to-sql/table-of-contents
+
+
+Week 11 - Data Access in Java SE 17 - https://app.pluralsight.com/library/courses/java-se-17-data-access-fundamentals
+          Java Persistence API 2.2 - https://app.pluralsight.com/library/courses/java-persistence-api-21
+
+Week 12 - Spring Data 2022 Fundamentals - https://app.pluralsight.com/library/courses/spring-data-2022-fundamentals/table-of-contents

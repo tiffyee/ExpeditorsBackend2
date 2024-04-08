@@ -1,0 +1,4 @@
+
+1. StudentService should allow users to perform basic create, update, delete operations on Students to a store.
+2. StudentService should allow users to retrieve a Student by ID
+3. StudentService should allow users to retrieve all Students.
