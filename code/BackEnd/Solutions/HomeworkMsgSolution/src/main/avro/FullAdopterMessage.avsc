@@ -1,7 +1,7 @@
 [
   {
     "type": "record",
-    "name": "Pet",
+    "name": "AvroPet",
     "namespace": "expeditors.backend.avro",
     "fields": [
       {
@@ -20,6 +20,12 @@
         "type": "string",
         "default": "",
         "doc": "Pet Breed, if known (e.g. siamese, dalmation)"
+      },
+      {
+        "name": "adoption_date",
+        "type": "string",
+        "default": "",
+        "doc": "Date of adoption, if known"
       }
     ]
   },
@@ -41,16 +47,10 @@
         "doc": "Phone Number"
       },
       {
-        "name": "adoptionDate",
-        "type": "string",
-        "default": "",
-        "doc": "Date the pet was adopted"
-      },
-      {
         "name": "pets",
         "type": {
           "type": "array",
-          "items": "expeditors.backend.avro.Pet"
+          "items": "expeditors.backend.avro.AvroPet"
         }
       },
       {

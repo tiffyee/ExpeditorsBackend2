@@ -1,6 +1,7 @@
 package expeditors.backend.commonconfig.security;
 
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -10,6 +11,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.sql.DataSource;
@@ -21,10 +23,10 @@ public class SecurityWithCustomUser {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-//        PasswordEncoder passwordEncoder =
-//                PasswordEncoderFactories.createDelegatingPasswordEncoder();
-//        return passwordEncoder;
+//        return new BCryptPasswordEncoder();
+        PasswordEncoder passwordEncoder =
+                PasswordEncoderFactories.createDelegatingPasswordEncoder();
+        return passwordEncoder;
     }
 
 
@@ -53,13 +55,25 @@ public class SecurityWithCustomUser {
 //		MyUserDetailsService muds = new MyUserDetailsService();
 //		return muds;
 //	}
+//    @Primary
+//    @Bean
+//    public UserDetailsService userDetailsService(@Qualifier("UserDS") DataSource userDataSource,
+//                                                 DataSource mainDataSource) {
+//        JdbcTemplate userTemplate = new JdbcTemplate(userDataSource);
+//        JdbcTemplate mainTemplate = new JdbcTemplate(mainDataSource);
+//        MyUserDetailsDBService muds = new MyUserDetailsDBService(userTemplate, mainTemplate);
+//        return muds;
+//    }
+
     @Primary
     @Bean
     public UserDetailsService userDetailsService(@Qualifier("UserDS") DataSource userDataSource,
-                                                 DataSource mainDataSource) {
+                                                 DataSource mainDataSource,
+                                                 @Value("${userservice.usertable.name}")
+                                                 String userTableName) {
         JdbcTemplate userTemplate = new JdbcTemplate(userDataSource);
         JdbcTemplate mainTemplate = new JdbcTemplate(mainDataSource);
-        MyUserDetailsDBService muds = new MyUserDetailsDBService(userTemplate, mainTemplate);
+        MyUserDetailsDBService muds = new MyUserDetailsDBService(userTemplate, mainTemplate, userTableName);
         return muds;
     }
 }

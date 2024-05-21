@@ -1,12 +1,15 @@
 package adoption.dao;
 
 import adoption.domain.Adopter;
+import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+@Repository
+@Profile("prod")
 public class OtherDAO implements AdopterDAO {
 
     private Map<Integer, Adopter> adopters = new HashMap<>();

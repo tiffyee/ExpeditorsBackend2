@@ -9,10 +9,10 @@ VALUES ('Mysql-Joey', '383 9999 9393', '1960-06-09', 'DOG', 'woofie', 'mixed'),
        ('Mysql-Miguel', '77 888 93938', '2022-03-09', 'DOG', 'woofwoof', 'Terrier');
 
 INSERT INTO ADOPTER (NAME, PHONE_NUMBER)
-VALUES ('H2-Joey', '383 9999 9393'),
-       ('H2-Francine', '383 9339 9999 9393'),
-       ('H2-Darlene', '4484 9339 77939'),
-       ('H2-Miguel', '77 888 93938');
+VALUES ('Mysql-Joey', '383 9999 9393'),
+       ('Mysql-Francine', '383 9339 9999 9393'),
+       ('Mysql-Darlene', '4484 9339 77939'),
+       ('Mysql-Miguel', '77 888 93938');
 
 
 INSERT INTO PET (PET_TYPE, PET_NAME, PET_BREED, ADOPT_DATE, ADOPTER_ID)

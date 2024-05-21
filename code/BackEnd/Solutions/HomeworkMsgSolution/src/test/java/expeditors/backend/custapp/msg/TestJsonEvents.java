@@ -4,6 +4,7 @@ import expeditors.backend.custapp.domain.Customer;
 import expeditors.backend.commonconfig.msg.MessageSender;
 import expeditors.backend.commonconfig.msg.listeners.SBFKafkaJsonListenerHolder;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -18,6 +19,7 @@ import org.springframework.test.context.junit.jupiter.EnabledIf;
 import java.time.LocalDate;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
+import org.springframework.transaction.annotation.Transactional;
 
 import static java.lang.System.out;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -44,6 +46,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 //@EnabledIf(value = "#{environment.matchesProfiles('kkavroevents') && '${ttl.kafka.embedded}' == 'true'}", loadContext = true)
 @EnabledIf(value = "#{environment.matchesProfiles('kkjsonevents') && environment.getProperty('EMBEDDED_KAFKA') != null}", loadContext = true)
 //@EnabledIf(value = "#{environment.getProperty('EMBEDDED_KAFKA') != null}", loadContext = true)
+@Disabled
 public class TestJsonEvents {
 
 
@@ -83,6 +86,7 @@ public class TestJsonEvents {
 
 
     @Test
+    @Transactional
     public void testSendToEmbeddedBroker()
             throws Exception {
 

@@ -3,10 +3,11 @@ package ttl.larku.service;
 import jakarta.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.stereotype.Service;
 import ttl.larku.domain.ScheduledClass;
 import ttl.larku.domain.Student;
 
-//@Service
+@Service
 public class RegistrationService {
 
 //    @Autowired

@@ -14,10 +14,10 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class FullAdopterMessage extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -6497849311481252850L;
+  private static final long serialVersionUID = 6872092311891973295L;
 
 
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"FullAdopterMessage\",\"namespace\":\"expeditors.backend.avro\",\"fields\":[{\"name\":\"name\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Name of Adopter\",\"default\":\"\"},{\"name\":\"phoneNumber\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Phone Number\",\"default\":\"\"},{\"name\":\"adoptionDate\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Date the pet was adopted\",\"default\":\"\"},{\"name\":\"pets\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"Pet\",\"fields\":[{\"name\":\"pet_type\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Type of Animal\"},{\"name\":\"pet_name\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Pet Name, if known\",\"default\":\"\"},{\"name\":\"pet_breed\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Pet Breed, if known (e.g. siamese, dalmation)\",\"default\":\"\"}]}}},{\"name\":\"time_stamp\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Datetime when the message was generated\"}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"FullAdopterMessage\",\"namespace\":\"expeditors.backend.avro\",\"fields\":[{\"name\":\"name\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Name of Adopter\",\"default\":\"\"},{\"name\":\"phoneNumber\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Phone Number\",\"default\":\"\"},{\"name\":\"adoptionDate\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Date the pet was adopted\",\"default\":\"\"},{\"name\":\"pets\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"AvroPet\",\"fields\":[{\"name\":\"pet_type\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Type of Animal\"},{\"name\":\"pet_name\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Pet Name, if known\",\"default\":\"\"},{\"name\":\"pet_breed\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Pet Breed, if known (e.g. siamese, dalmation)\",\"default\":\"\"},{\"name\":\"adoption_date\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Date of adoption, if known\",\"default\":\"\"}]}}},{\"name\":\"time_stamp\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Datetime when the message was generated\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static final SpecificData MODEL$ = new SpecificData();
@@ -79,7 +79,7 @@ public class FullAdopterMessage extends org.apache.avro.specific.SpecificRecordB
   private java.lang.String phoneNumber;
   /** Date the pet was adopted */
   private java.lang.String adoptionDate;
-  private java.util.List<expeditors.backend.avro.Pet> pets;
+  private java.util.List<expeditors.backend.avro.AvroPet> pets;
   /** Datetime when the message was generated */
   private java.lang.String time_stamp;
 
@@ -98,7 +98,7 @@ public class FullAdopterMessage extends org.apache.avro.specific.SpecificRecordB
    * @param pets The new value for pets
    * @param time_stamp Datetime when the message was generated
    */
-  public FullAdopterMessage(java.lang.String name, java.lang.String phoneNumber, java.lang.String adoptionDate, java.util.List<expeditors.backend.avro.Pet> pets, java.lang.String time_stamp) {
+  public FullAdopterMessage(java.lang.String name, java.lang.String phoneNumber, java.lang.String adoptionDate, java.util.List<expeditors.backend.avro.AvroPet> pets, java.lang.String time_stamp) {
     this.name = name;
     this.phoneNumber = phoneNumber;
     this.adoptionDate = adoptionDate;
@@ -133,7 +133,7 @@ public class FullAdopterMessage extends org.apache.avro.specific.SpecificRecordB
     case 0: name = value$ != null ? value$.toString() : null; break;
     case 1: phoneNumber = value$ != null ? value$.toString() : null; break;
     case 2: adoptionDate = value$ != null ? value$.toString() : null; break;
-    case 3: pets = (java.util.List<expeditors.backend.avro.Pet>)value$; break;
+    case 3: pets = (java.util.List<expeditors.backend.avro.AvroPet>)value$; break;
     case 4: time_stamp = value$ != null ? value$.toString() : null; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
@@ -197,7 +197,7 @@ public class FullAdopterMessage extends org.apache.avro.specific.SpecificRecordB
    * Gets the value of the 'pets' field.
    * @return The value of the 'pets' field.
    */
-  public java.util.List<expeditors.backend.avro.Pet> getPets() {
+  public java.util.List<expeditors.backend.avro.AvroPet> getPets() {
     return pets;
   }
 
@@ -206,7 +206,7 @@ public class FullAdopterMessage extends org.apache.avro.specific.SpecificRecordB
    * Sets the value of the 'pets' field.
    * @param value the value to set.
    */
-  public void setPets(java.util.List<expeditors.backend.avro.Pet> value) {
+  public void setPets(java.util.List<expeditors.backend.avro.AvroPet> value) {
     this.pets = value;
   }
 
@@ -275,7 +275,7 @@ public class FullAdopterMessage extends org.apache.avro.specific.SpecificRecordB
     private java.lang.String phoneNumber;
     /** Date the pet was adopted */
     private java.lang.String adoptionDate;
-    private java.util.List<expeditors.backend.avro.Pet> pets;
+    private java.util.List<expeditors.backend.avro.AvroPet> pets;
     /** Datetime when the message was generated */
     private java.lang.String time_stamp;
 
@@ -476,7 +476,7 @@ public class FullAdopterMessage extends org.apache.avro.specific.SpecificRecordB
       * Gets the value of the 'pets' field.
       * @return The value.
       */
-    public java.util.List<expeditors.backend.avro.Pet> getPets() {
+    public java.util.List<expeditors.backend.avro.AvroPet> getPets() {
       return pets;
     }
 
@@ -486,7 +486,7 @@ public class FullAdopterMessage extends org.apache.avro.specific.SpecificRecordB
       * @param value The value of 'pets'.
       * @return This builder.
       */
-    public expeditors.backend.avro.FullAdopterMessage.Builder setPets(java.util.List<expeditors.backend.avro.Pet> value) {
+    public expeditors.backend.avro.FullAdopterMessage.Builder setPets(java.util.List<expeditors.backend.avro.AvroPet> value) {
       validate(fields()[3], value);
       this.pets = value;
       fieldSetFlags()[3] = true;
@@ -564,7 +564,7 @@ public class FullAdopterMessage extends org.apache.avro.specific.SpecificRecordB
         record.name = fieldSetFlags()[0] ? this.name : (java.lang.String) defaultValue(fields()[0]);
         record.phoneNumber = fieldSetFlags()[1] ? this.phoneNumber : (java.lang.String) defaultValue(fields()[1]);
         record.adoptionDate = fieldSetFlags()[2] ? this.adoptionDate : (java.lang.String) defaultValue(fields()[2]);
-        record.pets = fieldSetFlags()[3] ? this.pets : (java.util.List<expeditors.backend.avro.Pet>) defaultValue(fields()[3]);
+        record.pets = fieldSetFlags()[3] ? this.pets : (java.util.List<expeditors.backend.avro.AvroPet>) defaultValue(fields()[3]);
         record.time_stamp = fieldSetFlags()[4] ? this.time_stamp : (java.lang.String) defaultValue(fields()[4]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
@@ -608,7 +608,7 @@ public class FullAdopterMessage extends org.apache.avro.specific.SpecificRecordB
     out.writeArrayStart();
     out.setItemCount(size0);
     long actualSize0 = 0;
-    for (expeditors.backend.avro.Pet e0: this.pets) {
+    for (expeditors.backend.avro.AvroPet e0: this.pets) {
       actualSize0++;
       out.startItem();
       e0.customEncode(out);
@@ -633,17 +633,17 @@ public class FullAdopterMessage extends org.apache.avro.specific.SpecificRecordB
       this.adoptionDate = in.readString();
 
       long size0 = in.readArrayStart();
-      java.util.List<expeditors.backend.avro.Pet> a0 = this.pets;
+      java.util.List<expeditors.backend.avro.AvroPet> a0 = this.pets;
       if (a0 == null) {
-        a0 = new SpecificData.Array<expeditors.backend.avro.Pet>((int)size0, SCHEMA$.getField("pets").schema());
+        a0 = new SpecificData.Array<expeditors.backend.avro.AvroPet>((int)size0, SCHEMA$.getField("pets").schema());
         this.pets = a0;
       } else a0.clear();
-      SpecificData.Array<expeditors.backend.avro.Pet> ga0 = (a0 instanceof SpecificData.Array ? (SpecificData.Array<expeditors.backend.avro.Pet>)a0 : null);
+      SpecificData.Array<expeditors.backend.avro.AvroPet> ga0 = (a0 instanceof SpecificData.Array ? (SpecificData.Array<expeditors.backend.avro.AvroPet>)a0 : null);
       for ( ; 0 < size0; size0 = in.arrayNext()) {
         for ( ; size0 != 0; size0--) {
-          expeditors.backend.avro.Pet e0 = (ga0 != null ? ga0.peek() : null);
+          expeditors.backend.avro.AvroPet e0 = (ga0 != null ? ga0.peek() : null);
           if (e0 == null) {
-            e0 = new expeditors.backend.avro.Pet();
+            e0 = new expeditors.backend.avro.AvroPet();
           }
           e0.customDecode(in);
           a0.add(e0);
@@ -669,17 +669,17 @@ public class FullAdopterMessage extends org.apache.avro.specific.SpecificRecordB
 
         case 3:
           long size0 = in.readArrayStart();
-          java.util.List<expeditors.backend.avro.Pet> a0 = this.pets;
+          java.util.List<expeditors.backend.avro.AvroPet> a0 = this.pets;
           if (a0 == null) {
-            a0 = new SpecificData.Array<expeditors.backend.avro.Pet>((int)size0, SCHEMA$.getField("pets").schema());
+            a0 = new SpecificData.Array<expeditors.backend.avro.AvroPet>((int)size0, SCHEMA$.getField("pets").schema());
             this.pets = a0;
           } else a0.clear();
-          SpecificData.Array<expeditors.backend.avro.Pet> ga0 = (a0 instanceof SpecificData.Array ? (SpecificData.Array<expeditors.backend.avro.Pet>)a0 : null);
+          SpecificData.Array<expeditors.backend.avro.AvroPet> ga0 = (a0 instanceof SpecificData.Array ? (SpecificData.Array<expeditors.backend.avro.AvroPet>)a0 : null);
           for ( ; 0 < size0; size0 = in.arrayNext()) {
             for ( ; size0 != 0; size0--) {
-              expeditors.backend.avro.Pet e0 = (ga0 != null ? ga0.peek() : null);
+              expeditors.backend.avro.AvroPet e0 = (ga0 != null ? ga0.peek() : null);
               if (e0 == null) {
-                e0 = new expeditors.backend.avro.Pet();
+                e0 = new expeditors.backend.avro.AvroPet();
               }
               e0.customDecode(in);
               a0.add(e0);

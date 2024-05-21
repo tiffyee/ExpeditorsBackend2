@@ -42,13 +42,13 @@ import java.security.cert.X509Certificate;
 @Profile("ssl | ssltest")
 public class SSLConfig {
 
-    private SslBundles sslBundles;
-    private SslBundle ourBundle;
+   private SslBundles sslBundles;
+   private SslBundle ourBundle;
 
-    public SSLConfig(SslBundles sslBundles) {
-        this.sslBundles = sslBundles;
-        this.ourBundle = sslBundles.getBundle("web-server");
-    }
+   public SSLConfig(SslBundles sslBundles) {
+      this.sslBundles = sslBundles;
+      this.ourBundle = sslBundles.getBundle("web-server");
+   }
 
 //    @Bean
 //    public RestTemplate sslRestTemplate() {
@@ -59,125 +59,87 @@ public class SSLConfig {
 //        return rt;
 //    }
 
-    @Bean
-    public RestTemplate sslRestTemplate() {
-        SSLConnectionSocketFactory sslSocketFactory =
-                SSLConnectionSocketFactoryBuilder.create()
-                        .setSslContext(this.ourBundle.createSslContext())
-                        .setHostnameVerifier(NoopHostnameVerifier.INSTANCE)
-                        .build();
-        HttpClientConnectionManager cm = PoolingHttpClientConnectionManagerBuilder.create().setSSLSocketFactory(sslSocketFactory).build();
-        CloseableHttpClient httpClient = HttpClients.custom()
-                .setConnectionManager(cm)
-                .evictExpiredConnections()
-                .build();
-        HttpComponentsClientHttpRequestFactory factory = new HttpComponentsClientHttpRequestFactory(httpClient);
-        return new RestTemplate(factory);
-    }
-
-
-    /**
-     * This one allows self signed certificates
-     */
-    @Bean("fakessltemplate")
-    public RestTemplate restTemplateFakeSSL() throws IOException, KeyStoreException, CertificateException, NoSuchAlgorithmException, UnrecoverableKeyException, KeyManagementException {
-        KeyStore clientStore = KeyStore.getInstance("PKCS12");
-        //We point it at the same keystore as the server
-        clientStore.load(getClass().getResourceAsStream("larkUKeyfile.p12"), "password".toCharArray());
-
-        TrustStrategy lam = (X509Certificate[] chain, String authType) -> true;
-        SSLContext sslContext = SSLContexts.custom()
-                //.loadTrustMaterial(null, acceptingTrustStrategy)
-                .loadKeyMaterial(clientStore, "password".toCharArray())
-                .loadTrustMaterial(new TrustSelfSignedStrategy())
-                .build();
-
-        SSLConnectionSocketFactory sslSocketFactory = SSLConnectionSocketFactoryBuilder.create()
-                .setSslContext(sslContext)
-                .setHostnameVerifier(NoopHostnameVerifier.INSTANCE)
-                .build();
-        HttpClientConnectionManager cm =
-                PoolingHttpClientConnectionManagerBuilder.create()
-                        .setSSLSocketFactory(sslSocketFactory).build();
-
-        CloseableHttpClient httpClient = HttpClients.custom()
-                .setConnectionManager(cm)
-                .build();
-
-        HttpComponentsClientHttpRequestFactory requestFactory =
-                new HttpComponentsClientHttpRequestFactory();
-
-        requestFactory.setHttpClient(httpClient);
-        requestFactory.setConnectTimeout(10000); // 10 seconds
-//        requestFactory.setReadTimeout(10000); // 10 seconds
-
-        RestTemplate restTemplate = new RestTemplateBuilder()
-                .requestFactory(() -> requestFactory)
-//                .errorHandler(new TemplateErrorHandler())
-                .build();
-//        RestTemplate restTemplate = new RestTemplate(requestFactory);
-        return restTemplate;
+   @Bean
+   public RestTemplate sslRestTemplate() {
+      SSLConnectionSocketFactory sslSocketFactory =
+            SSLConnectionSocketFactoryBuilder.create()
+                  .setSslContext(this.ourBundle.createSslContext())
+                  .setHostnameVerifier(NoopHostnameVerifier.INSTANCE)
+                  .build();
+      HttpClientConnectionManager cm = PoolingHttpClientConnectionManagerBuilder.create().setSSLSocketFactory(sslSocketFactory).build();
+      CloseableHttpClient httpClient = HttpClients.custom()
+            .setConnectionManager(cm)
+            .evictExpiredConnections()
+            .build();
+      HttpComponentsClientHttpRequestFactory factory = new HttpComponentsClientHttpRequestFactory(httpClient);
+      return new RestTemplate(factory);
    }
-//
-//    /**
-//     * This one checks the server's certificate, but accepts self signed certificates
-//     *
-//     * @return
-//     * @throws IOException
-//     * @throws KeyStoreException
-//     * @throws CertificateException
-//     * @throws NoSuchAlgorithmException
-//     * @throws UnrecoverableKeyException
-//     * @throws KeyManagementException
-//     */
-//    @Bean("realssltemplate")
-//    public RestTemplate restTemplateRealSSL() throws IOException, KeyStoreException, CertificateException, NoSuchAlgorithmException, UnrecoverableKeyException, KeyManagementException {
-//        KeyStore clientStore = KeyStore.getInstance("PKCS12");
-//        //We point it at the same keystore as the server
-//        clientStore.load(getClass().getResourceAsStream("larkUKeyfile.p12"), "password".toCharArray());
-//
-//        SSLContextBuilder sslContextBuilder = new SSLContextBuilder();
-//        sslContextBuilder.setProtocol("TLS");
-//        sslContextBuilder.loadKeyMaterial(clientStore, "password".toCharArray());
-//        sslContextBuilder.loadTrustMaterial(new TrustSelfSignedStrategy());
-//
-//        SSLConnectionSocketFactory sslConnectionSocketFactory =
-//                new SSLConnectionSocketFactory(sslContextBuilder.build());
-//        CloseableHttpClient httpClient = HttpClients.custom()
-//                .setSSLSocketFactory(sslConnectionSocketFactory)
-//                .build();
-//        HttpComponentsClientHttpRequestFactory requestFactory = new HttpComponentsClientHttpRequestFactory(httpClient);
-//        requestFactory.setConnectTimeout(10000); // 10 seconds
+
+
+   /**
+    * This one allows self signed certificates
+    */
+   @Bean("fakessltemplate")
+   public RestTemplate restTemplateFakeSSL() throws IOException, KeyStoreException, CertificateException, NoSuchAlgorithmException, UnrecoverableKeyException, KeyManagementException {
+      KeyStore clientStore = KeyStore.getInstance("PKCS12");
+      //We point it at the same keystore as the server
+      clientStore.load(getClass().getResourceAsStream("larkUKeyfile.p12"), "password".toCharArray());
+
+      TrustStrategy lam = (X509Certificate[] chain, String authType) -> true;
+      SSLContext sslContext = SSLContexts.custom()
+            //.loadTrustMaterial(null, acceptingTrustStrategy)
+            .loadKeyMaterial(clientStore, "password".toCharArray())
+            .loadTrustMaterial(new TrustSelfSignedStrategy())
+            .build();
+
+      SSLConnectionSocketFactory sslSocketFactory = SSLConnectionSocketFactoryBuilder.create()
+            .setSslContext(sslContext)
+            .setHostnameVerifier(NoopHostnameVerifier.INSTANCE)
+            .build();
+      HttpClientConnectionManager cm =
+            PoolingHttpClientConnectionManagerBuilder.create()
+                  .setSSLSocketFactory(sslSocketFactory).build();
+
+      CloseableHttpClient httpClient = HttpClients.custom()
+            .setConnectionManager(cm)
+            .build();
+
+      HttpComponentsClientHttpRequestFactory requestFactory =
+            new HttpComponentsClientHttpRequestFactory();
+
+      requestFactory.setHttpClient(httpClient);
+      requestFactory.setConnectTimeout(10000); // 10 seconds
 //        requestFactory.setReadTimeout(10000); // 10 seconds
-//
-//        RestTemplate restTemplate = new RestTemplateBuilder()
-//                .requestFactory(() -> requestFactory)
-//                .errorHandler(new TemplateErrorHandler()).build();
-//        return restTemplate;
-//    }
-//
-    TrustManager[] certs = new TrustManager[]{new X509TrustManager() {
-        @Override
-        public X509Certificate[] getAcceptedIssuers() {
-            return null;
-        }
 
-        @Override
-        public void checkServerTrusted(X509Certificate[] chain, String authType)
-                throws CertificateException {
-        }
+      RestTemplate restTemplate = new RestTemplateBuilder()
+            .requestFactory(() -> requestFactory)
+            .build();
+      return restTemplate;
+   }
 
-        @Override
-        public void checkClientTrusted(X509Certificate[] chain, String authType)
-                throws CertificateException {
-        }
-    }};
 
-    public static class TrustAllHostNameVerifier implements HostnameVerifier {
+   TrustManager[] certs = new TrustManager[]{new X509TrustManager() {
+      @Override
+      public X509Certificate[] getAcceptedIssuers() {
+         return null;
+      }
 
-        public boolean verify(String hostname, SSLSession session) {
-            return true;
-        }
+      @Override
+      public void checkServerTrusted(X509Certificate[] chain, String authType)
+            throws CertificateException {
+      }
 
-    }
+      @Override
+      public void checkClientTrusted(X509Certificate[] chain, String authType)
+            throws CertificateException {
+      }
+   }};
+
+   public static class TrustAllHostNameVerifier implements HostnameVerifier {
+
+      public boolean verify(String hostname, SSLSession session) {
+         return true;
+      }
+
+   }
 }

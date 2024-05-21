@@ -4,7 +4,6 @@ import adoption.domain.Adopter;
 import adoption.jconfig.AppConfig;
 import adoption.service.AdopterService;
 import adoption.service.AdopterServiceImpl;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.util.Comparator;
@@ -18,19 +17,14 @@ public class AdoptionAppSpring {
     }
 
     public void go(){
-        postAnAdopter();
-        getAllAdopters();
-        getSortedAdopterByName();
-        getAdopterByName("Tiffany Yee");
-//        List<Adopter> adopters = as.getAllAdopters();
-//        System.out.println("Count of students: " + adopters.size());
-//        System.out.println(adopters);
-    }
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
+        context.getEnvironment().setActiveProfiles("dev");
+        context.register(AppConfig.class);
+        context.scan("adoption");
+        context.refresh();
 
-    ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
-    AdopterService as = context.getBean("adopterServiceImpl", AdopterServiceImpl.class);
+        AdopterService as = context.getBean("adopterServiceImpl", AdopterServiceImpl.class);
 
-    public void postAnAdopter() {
         Adopter adopter = new Adopter("John Doe", "123-123-1234");
         Adopter newAdopter = as.addAdopter(adopter);
 
@@ -43,26 +37,16 @@ public class AdoptionAppSpring {
         List<Adopter> adopters = as.getAllAdopters();
         System.out.println("# of adopters: " + adopters.size());
         adopters.forEach(System.out::println);
+
+        List<Adopter> sortedAdopters = as.sortBy(Comparator.comparing(Adopter::getName));
+        System.out.println("Sorted adopters by name:" + sortedAdopters.size());
+        sortedAdopters.forEach(System.out::println);
+
+        List<Adopter> findAdopters = as.findBy(a -> a.getName().equalsIgnoreCase("Tiffany Yee"));
+        System.out.println("Found adopters:" + findAdopters.size());
+        findAdopters.forEach(System.out::println);
     }
 
-    public void getAllAdopters() {
-        List<Adopter> adopters = as.getAllAdopters();
-        System.out.println("# of adopters: " + adopters.size());
-        adopters.forEach(System.out::println);
-    }
-
-    public void getSortedAdopterByName(){
-        List<Adopter> adopters = as.sortBy(Comparator.comparing(Adopter::getName));
-        System.out.println("Sorted adopters by name:" + adopters.size());
-        adopters.forEach(System.out::println);
-    }
-
-    public void getAdopterByName(String name){
-        List<Adopter> adopters = as.findBy(adopter -> adopter.getName().equalsIgnoreCase(name));
-        System.out.println("Found adopters:" + adopters.size());
-        adopters.forEach(System.out::println);
-
-    }
 
 
 }

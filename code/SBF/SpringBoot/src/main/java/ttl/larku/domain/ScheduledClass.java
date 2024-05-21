@@ -5,15 +5,25 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
-
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Transient;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+
+@Entity
 public class ScheduledClass {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Transient
     @JsonIgnore
     private List<Student> students = new ArrayList<Student>();
 
@@ -25,7 +35,7 @@ public class ScheduledClass {
     @JsonSerialize(using = LocalDateSerializer.class)
     private LocalDate endDate;
 
-
+    @ManyToOne
     private Course course;
 
     private static int nextId = 0;

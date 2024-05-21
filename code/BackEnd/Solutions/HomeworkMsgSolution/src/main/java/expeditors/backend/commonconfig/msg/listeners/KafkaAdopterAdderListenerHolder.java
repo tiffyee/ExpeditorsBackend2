@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
  * @author whynot
  */
 @Component
-@Profile("kkjsonevents")
+@Profile("kkjsonevents | kkavroevents")
 public class KafkaAdopterAdderListenerHolder {
     @Autowired
     private AdopterRepoService adopterService;

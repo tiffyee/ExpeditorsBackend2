@@ -1,0 +1,57 @@
+Some commands for working with Podman/Docker.  The commands
+will work for either one.  The examples below use Podman.
+If you want to use Docker, just substitute 'docker' for 'podman'
+in the commands.
+
+- To create a Podman image
+  -  first create a Dockerfile somewhere in your project.  Here
+     it is in the root directory.
+  - Then type in this command to create an image
+        podman build -t name_of_image .
+        e.g.
+        podman build -t course-rating-service .
+
+        the -t specifies the name of the image.
+        the . at the end tells podman to find the docker file in the current directory.
+
+- To see the newly created image:
+    podman image ls
+
+- To run the image in a container:
+    podman run --name name_for_new_container -p host_port:container_port -d name_of_image
+    e.g.
+    podman run --name course-service -p 10001:10001 -d course-rating-service
+
+    the -p exposes port 10001 in the container as 10001 on the host
+    note that the order is host_port:container_port
+
+    the -d runs in detached mode.
+
+    the --name gives the new container a name (really?)
+
+- To see the started container:
+    podman ps
+
+- To see all containers (started and stopped)
+    podman ps -a
+
+- To start/stop a container
+    podman start/stop container_name
+    e.g.
+    podman stop course-service
+
+    Note that you can also supply the first few digits of the
+    hex container id whenever a name is required.  You have to
+    give just enough digits for it to be unique.
+    e.g. if podman ps gives you the container id c0498fc0a1a2, you can stop the
+    container with:
+    podman stop c04
+
+-  To remove a stopped container
+    podman rm container_name
+
+-  To forcefully stop and remove a running container
+     podman rm -f container_name
+
+-  To start a bash shell on the container (will only work if the image has bash)
+     podman exec -it container_name bash

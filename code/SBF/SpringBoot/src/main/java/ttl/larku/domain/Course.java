@@ -1,27 +1,42 @@
 package ttl.larku.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Transient;
 
+@Entity
 public class Course {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String title;
     private String code;
     private float credits = 2.5f;
 
-    @JsonIgnore
-    private String name;
+    @Transient
+    private String rating;
 
+
+    @Transient
     @JsonIgnore
     private float[] creditList = {1, 1.5f, 2, 2.5f, 3, 3.5f, 4};
 
     public Course() {
     }
 
-    public Course(String code, String title) {
+    public Course(String code, String title, float credits) {
         super();
-        this.title = title;
         this.code = code;
+        this.title = title;
+        this.credits = credits;
+    }
+
+    public Course(String code, String title) {
+        this(code, title, 2.5f);
     }
 
     public int getId() {
@@ -48,6 +63,7 @@ public class Course {
         this.code = code;
     }
 
+
     public float getCredits() {
         return credits;
     }
@@ -56,20 +72,20 @@ public class Course {
         this.credits = credits;
     }
 
+    public String getRating() {
+        return rating;
+    }
+
+    public void setRating(String rating) {
+        this.rating = rating;
+    }
+
     public float[] getCreditList() {
         return creditList;
     }
 
     public void setCreditList(float[] creditList) {
         this.creditList = creditList;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     @Override
@@ -105,7 +121,14 @@ public class Course {
 
     @Override
     public String toString() {
-        return "Course [id=" + id + ", title=" + title + ", code=" + code + ", credits=" + credits + "]";
+        return "Course{" +
+              "id=" + id +
+              ", title='" + title + '\'' +
+              ", code='" + code + '\'' +
+//              ", name='" + name + '\'' +
+              ", rating='" + rating + '\'' +
+              ", credits=" + credits +
+              '}';
     }
 
 

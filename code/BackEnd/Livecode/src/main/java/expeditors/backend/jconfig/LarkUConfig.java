@@ -21,8 +21,8 @@ public class LarkUConfig {
    public StudentDAO studentDAO() {
       var dao = new InMemoryStudentDAO();
       List<Student> students = List.of(
-            new Student("Arnie", LocalDate.of(1934, 10, 10), "38 0303 83393"),
-            Student.builder("Myrtle", LocalDate.of(1987, 10, 10)).phoneNumber("378 00 7585").build()
+            new Student("ArnieInMem", LocalDate.of(1934, 10, 10), "38 0303 83393"),
+            Student.builder("MyrtleInMem", LocalDate.of(1987, 10, 10)).phoneNumber("378 00 7585").build()
       );
       students.forEach(dao::insert);
 

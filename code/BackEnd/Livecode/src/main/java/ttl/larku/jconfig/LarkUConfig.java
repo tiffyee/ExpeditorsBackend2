@@ -74,13 +74,6 @@ public class LarkUConfig {
         return cs;
     }
 
-    //This works okay when running from the IDE, but blows up with a
-    //CircularReference exception when running from the command line.
-    //Injecting the StudentService as an argument seems to work in
-    //all cases.
-//    @Autowired
-//    private StudentService studentService;
-
 
     //Injection with an argument.  This approach works when running from
     //the IDE and the command line.  As opposed to @Autowired at the field
@@ -108,7 +101,6 @@ public class LarkUConfig {
     public BaseDAO<Course> inMemoryCourseDAO() {
         BaseDAO<Course> dao = testDataProducer.courseDAOWithInitData();
         return dao;
-//        return new InMemoryCourseDAO();
     }
 
     public BaseDAO<Course> jpaCourseDAO() {
