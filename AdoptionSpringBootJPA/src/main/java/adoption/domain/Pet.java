@@ -1,9 +1,6 @@
 package adoption.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Pet {
@@ -15,12 +12,15 @@ public class Pet {
     }
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int petId;
     private String name;
+    @Enumerated(EnumType.STRING)
     private PetType type;
     private String breed;
+    @ManyToOne
+    private Adopter adopter;
 
-    private static int totalPetCount;
 
     public Pet(){}
 

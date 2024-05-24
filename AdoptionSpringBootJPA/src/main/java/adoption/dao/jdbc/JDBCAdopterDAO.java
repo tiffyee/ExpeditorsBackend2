@@ -18,7 +18,7 @@ public class JDBCAdopterDAO implements BaseDAO<Adopter> {
         jdbcClient = JdbcClient.create(dataSource);
     }
 
-    String insertSql = "insert into adopter (name, phonenumber) values (?, ?, ?)";
+    String insertSql = "insert into adopter (name, phonenumber) values (?, ?)";
     @Override
     public Adopter insert(Adopter newObject) {
         var keyHolder = new GeneratedKeyHolder();

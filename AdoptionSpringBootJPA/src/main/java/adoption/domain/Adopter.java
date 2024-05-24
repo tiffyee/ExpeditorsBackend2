@@ -15,11 +15,14 @@ public class Adopter {
 
     private String name;
     private String phoneNumber;
+    @Column(name = "adoptiondate")
     private LocalDate adoptionDate;
     //Pet pet;
-    @Transient
+    @OneToMany
+//    @JoinTable(name = "adopter_pet")
+//    @JoinColumn(name = "adopter_id_fk")
     private List<Pet> pets = new ArrayList<>();
-    public static int totalAdopterCount;
+
 
     public Adopter(){}
     public Adopter(String name, String phoneNumber, LocalDate adoptionDate, Pet pet){
