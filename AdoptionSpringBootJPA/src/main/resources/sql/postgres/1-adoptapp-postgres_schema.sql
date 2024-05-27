@@ -15,8 +15,8 @@ drop sequence if exists pet_id_seq;
 CREATE TABLE adopter (
                          id          serial primary key NOT NULL,
                          name        VARCHAR(255) NOT NULL,
-                         phone_number VARCHAR(12),
-                         adoption_date date
+                         phonenumber VARCHAR(12),
+                         adoptiondate date
 );
 
 CREATE TABLE pet (

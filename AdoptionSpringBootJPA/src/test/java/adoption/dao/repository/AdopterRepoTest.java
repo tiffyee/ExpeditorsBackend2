@@ -1,17 +1,22 @@
 package adoption.dao.repository;
 
 import adoption.domain.Adopter;
+import adoption.domain.Pet;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 @SpringBootTest
 public class AdopterRepoTest {
 
     @Autowired
     private AdopterRepo adopterRepo;
+
+    @Autowired PetRepo petRepo;
 
     @Test
     public void testGetAllAdopters(){
@@ -29,6 +34,12 @@ public class AdopterRepoTest {
 
     @Test
     public void testInsertAdopter(){
+        Optional<Pet> opt = petRepo.findById(1);
+        if (opt.isPresent()){
+            Pet pet = opt.get();
+            Adopter adopter = new Adopter("Tom", "111-222-3333", LocalDate.parse("2020-04-28"), pet);
+            adopterRepo.save(adopter);
+        }
 
     }
 

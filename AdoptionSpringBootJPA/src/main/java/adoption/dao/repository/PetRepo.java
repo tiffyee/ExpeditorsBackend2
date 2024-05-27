@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface  PetRepo extends JpaRepository<Pet,Integer> {
 
-    @Query(value = "select * from pet s", nativeQuery = true)
+    @Query(value = "select * from pet p", nativeQuery = true)
     List<Pet> run();
 }

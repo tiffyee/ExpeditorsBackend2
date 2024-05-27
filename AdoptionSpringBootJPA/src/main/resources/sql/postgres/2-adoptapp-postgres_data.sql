@@ -1,4 +1,4 @@
-delete from adopter_pet;
+delete from adopter_pets;
 
 delete from adopter;
 alter sequence adopter_id_seq restart;
@@ -12,7 +12,7 @@ alter sequence pet_id_seq restart;
 -- Data for Name: adopter; Type: TABLE DATA; Schema: public; Owner: -
 
 
-INSERT INTO adopter (id, name, phone_number, adoption_date) VALUES
+INSERT INTO adopter (id, name, phonenumber, adoptiondate) VALUES
 (1, 'John Doe', '333-333-3333', '2002-10-15'),
 (2, 'Jane Smith', '123-456-7890', '2016-07-15'),
 (3, 'Tiffany Yee', '555-555-5555', '2022-03-21');
@@ -37,10 +37,10 @@ INSERT INTO pet (id, name, type, breed) VALUES
 
 
 --
--- Data for Name: adopter_pet; Type: TABLE DATA; Schema: public; Owner: -
+-- Data for Name: adopter_pets; Type: TABLE DATA; Schema: public; Owner: -
 --
 
-INSERT INTO adopter_pet (adopter_id, pet_id) VALUES
+INSERT INTO adopter_pets (adopter_id, pets_id) VALUES
 (1, 1),
 (2, 2),
 (3, 3),
