@@ -12,7 +12,7 @@ alter sequence pet_id_seq restart;
 -- Data for Name: adopter; Type: TABLE DATA; Schema: public; Owner: -
 
 
-INSERT INTO adopter (id, name, phonenumber, adoptionDate) VALUES
+INSERT INTO adopter (id, name, phone_number, adoption_date) VALUES
 (1, 'John Doe', '333-333-3333', '2002-10-15'),
 (2, 'Jane Smith', '123-456-7890', '2016-07-15'),
 (3, 'Tiffany Yee', '555-555-5555', '2022-03-21');

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+
 public class Adopter {
 
     @Id
@@ -15,12 +16,12 @@ public class Adopter {
 
     private String name;
     private String phoneNumber;
-    @Column(name = "adoptiondate")
     private LocalDate adoptionDate;
     //Pet pet;
-    @OneToMany
+//    @OneToMany( mappedBy = "adopter")
 //    @JoinTable(name = "adopter_pet")
 //    @JoinColumn(name = "adopter_id_fk")
+    @OneToMany(cascade = CascadeType.MERGE)
     private List<Pet> pets = new ArrayList<>();
 
 
@@ -33,6 +34,7 @@ public class Adopter {
             addPet(pet);
         }
     }
+
     public Adopter(String name, String phoneNumber) {
         this(name, phoneNumber,null,null);
     }

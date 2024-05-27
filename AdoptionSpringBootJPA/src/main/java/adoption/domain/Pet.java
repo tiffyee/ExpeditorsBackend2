@@ -18,8 +18,9 @@ public class Pet {
     @Enumerated(EnumType.STRING)
     private PetType type;
     private String breed;
-    @ManyToOne
-    private Adopter adopter;
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn
+//    private Adopter adopter;
 
 
     public Pet(){}
