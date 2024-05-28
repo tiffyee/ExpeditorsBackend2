@@ -20,13 +20,6 @@ public class AdopterRepoTest {
     @Autowired PetRepo petRepo;
 
     @Test
-    public void testGetAllAdopters(){
-        List<Adopter> adopters = adopterRepo.findAll();
-        System.out.println("adopters: " + adopters.size());
-        adopters.forEach(System.out::println);
-    }
-
-    @Test
     public void testGetAllAdoptersWithPets(){
         List<Adopter> adopters = adopterRepo.findAllWithPets();
         System.out.println("adopters: " + adopters.size());
