@@ -20,7 +20,7 @@ public class Adopter {
 //    @OneToMany( mappedBy = "adopter")
 //    @JoinTable(name = "adopter_pet")
 //    @JoinColumn(name = "adopter_id_fk")
-    @OneToMany(cascade = CascadeType.MERGE)
+    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<Pet> pets = new ArrayList<>();
 
 

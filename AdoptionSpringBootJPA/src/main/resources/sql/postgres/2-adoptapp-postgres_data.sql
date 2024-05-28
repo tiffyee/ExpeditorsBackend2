@@ -24,7 +24,8 @@ INSERT INTO pet (id, name, type, breed) VALUES
 (1, 'Bobo', 'CAT', 'Tabby'),
 (2, 'Frankie', 'TURTLE', 'Red-Eared Slider'),
 (3, 'Moose', 'DOG', 'Bernadoodle'),
-(4, 'Jude', 'DOG', 'Golden Retriever');
+(4, 'Jude', 'DOG', 'Golden Retriever'),
+(5, 'Electronica', 'TURTLE', 'Red-Eared Slider');
 
 
 --

@@ -8,7 +8,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
+
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @SpringBootTest
 public class AdopterRepoTest {
@@ -34,13 +35,30 @@ public class AdopterRepoTest {
 
     @Test
     public void testInsertAdopter(){
-        Optional<Pet> opt = petRepo.findById(1);
-        if (opt.isPresent()){
-            Pet pet = opt.get();
-            Adopter adopter = new Adopter("Tom", "111-222-3333", LocalDate.parse("2020-04-28"), pet);
-            adopterRepo.save(adopter);
-        }
 
+        Adopter adopter = new Adopter("Tom", "111-222-3333");
+        adopter = adopterRepo.save(adopter);
+
+        Adopter foundAdopter = adopterRepo.findByIdWithPets(adopter.getId());
+//        Adopter foundAdopter = adopterRepo.findById(adopter.getId()).orElse((null));
+        System.out.println("found adopter: "+ foundAdopter);
+        assertNotNull(foundAdopter);
+    }
+
+    @Test
+    public void testInsertAdopterWithPet(){
+        Pet pet = new Pet(Pet.PetType.TURTLE, "Frankie", "Red-Eared Slider");
+//        petRepo.save(pet);
+
+//        Optional<Pet> opt = petRepo.findById(5);
+//        if (opt.isPresent()){
+//            Pet pet = opt.get();
+            Adopter adopter = new Adopter("Tom", "111-222-3333", LocalDate.parse("2020-04-28"), pet);
+            adopter = adopterRepo.save(adopter);
+//        }
+        Adopter foundAdopter = adopterRepo.findByIdWithPets(adopter.getId());
+        System.out.println("found adopter: "+ foundAdopter);
+        assertNotNull(foundAdopter);
     }
 
     @Test
