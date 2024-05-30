@@ -33,7 +33,7 @@ public class Pet {
     }
 
     public Pet(PetType type, String name, String breed){
-        this(1,type,name,breed);
+        this(0,type,name,breed);
     }
 
     public int getPetId() {
@@ -41,9 +41,9 @@ public class Pet {
     }
 
     public void setPetId(int petId) {
-        if (petId == 0){
-            throw new IllegalArgumentException("Invalid Argument: Pet ID can't be zero or null.");
-        }
+//        if (petId == 0){
+//            throw new IllegalArgumentException("Invalid Argument: Pet ID can't be zero or null.");
+//        }
         this.petId = petId;
     }
 

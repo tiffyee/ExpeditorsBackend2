@@ -8,6 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.LocalDate;
 import java.util.List;
+import org.springframework.transaction.annotation.Transactional;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -41,7 +42,7 @@ public class AdopterRepoTest {
     @Test
     public void testInsertAdopterWithPet(){
         Pet pet = new Pet(Pet.PetType.TURTLE, "Frankie", "Red-Eared Slider");
-//        petRepo.save(pet);
+//        pet = petRepo.save(pet);
 
 //        Optional<Pet> opt = petRepo.findById(5);
 //        if (opt.isPresent()){
