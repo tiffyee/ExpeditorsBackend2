@@ -24,5 +24,7 @@ public interface AdopterRepo extends JpaRepository<Adopter,Integer> {
     @Query("select a.name, p.name from Adopter a join a.pets p")
     List<Object[]> findAdopterNameAndPetName();
 
+//    List<Adopter> findByNameLike(String text);
+
 }
 

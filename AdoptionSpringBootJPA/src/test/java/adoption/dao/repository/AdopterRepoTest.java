@@ -9,7 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.time.LocalDate;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 public class AdopterRepoTest {
@@ -60,5 +60,11 @@ public class AdopterRepoTest {
         results.forEach(System.out::println);
     }
 
+//    @Test
+//    public void findByAdopterName(){
+//        List<Adopter> adopters = adopterRepo.findByNameLike("%iff%");
+//        assertEquals("Tiffany Yee", adopters.getFirst().getName());
+//
+//    }
 
 }

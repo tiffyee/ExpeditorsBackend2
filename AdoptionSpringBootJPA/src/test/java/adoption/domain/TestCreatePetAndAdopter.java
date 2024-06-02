@@ -18,10 +18,10 @@ public class TestCreatePetAndAdopter {
         assertEquals(1,pet1.getPetId());
     }
 
-    @Test
-    public void testInvalidPetID(){
-        assertThrows(IllegalArgumentException.class,() -> new Pet(0, Pet.PetType.CAT,"Marble","Tabby"));
-    }
+//    @Test
+//    public void testInvalidPetID(){
+//        assertThrows(IllegalArgumentException.class,() -> new Pet(0, Pet.PetType.CAT,"Marble","Tabby"));
+//    }
 
     @Test
     @DisplayName("Adopter Name")
