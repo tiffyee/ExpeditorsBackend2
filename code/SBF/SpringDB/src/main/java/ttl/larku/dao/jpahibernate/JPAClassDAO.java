@@ -53,8 +53,9 @@ public class JPAClassDAO implements BaseDAO<ScheduledClass> {
 
     @Override
     public List<ScheduledClass> findAll() {
-        TypedQuery<ScheduledClass> query = entityManager.
-                createQuery("Select s from ScheduledClass s", ScheduledClass.class);
+        //TypedQuery<ScheduledClass> query = entityManager.createQuery("Select s from ScheduledClass s", ScheduledClass.class);
+        TypedQuery<ScheduledClass> query =
+              entityManager.createNamedQuery("SC.getAllClassesAndCourses", ScheduledClass.class);
         List<ScheduledClass> classes = query.getResultList();
         return classes;
     }

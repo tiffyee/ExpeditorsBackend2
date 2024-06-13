@@ -1,10 +1,12 @@
 package ttl.larku.controllers.rest;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import java.util.Map;
 
 public class RestResultWrapper<T> {
 
@@ -12,6 +14,8 @@ public class RestResultWrapper<T> {
         Ok,
         Error
     }
+
+    private Map<String, Object> extraProps = new HashMap<>();
 
     private Status status = Status.Error;
 
@@ -70,6 +74,18 @@ public class RestResultWrapper<T> {
         return this;
     }
 
+    public RestResultWrapper<T> addProp(String name, Object value) {
+        extraProps.put(name, value);
+        return this;
+    }
+
+    public Object getProp(String name) {
+        return extraProps.get(name);
+    }
+
+    public Map<String, Object> getExtraProps() {
+        return extraProps;
+    }
 
     public List<String> getErrors() {
         return errors;

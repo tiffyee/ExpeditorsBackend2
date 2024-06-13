@@ -16,21 +16,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
-//Populate your DB.  From Most Expensive to least expensive
-
-//This will make recreate the context after every test.
-//In conjunction with appropriate 'schema[-XXX].sql' and 'data[-XXX].sql' files
-//it will also drop and recreate the DB before each test.
-//@DirtiesContext(classMode = ClassMode.BEFORE_EACH_TEST_METHOD)
-
-//Or you can just re-run the sql files before each test method
-//@Sql(scripts = { "/schema-h2.sql", "/data-h2.sql" }, executionPhase= Sql.ExecutionPhase.BEFORE_TEST_METHOD)
-
-//This next one will roll back the transaction after
-//each test, so the database will actually stay the
-//same for the next test.
+@SpringBootTest
 @Transactional
 @Tag("dao")
 public class CustomRepoTest extends SqlScriptBase {
@@ -59,7 +45,7 @@ public class CustomRepoTest extends SqlScriptBase {
     }
 
     /**
-     * The is testing the presence of @Nullable in the interface.
+     * This is testing the presence of @Nullable in the interface.
      * If a Null is returned on an @Nullable call, then the
      * null is returned.  If the call is not annotated with @Nullable,
      * an EmptyAccessException should be thrown.  See the next

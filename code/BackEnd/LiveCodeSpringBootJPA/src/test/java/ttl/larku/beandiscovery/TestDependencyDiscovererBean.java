@@ -30,7 +30,8 @@ public class TestDependencyDiscovererBean {
 
     @Test
     public void testDependenciesWithDDBean() {
-       List<BeanNode> dependencies = dd.getDependencies("org.springframework");
+//       List<BeanNode> dependencies = dd.getDependencies("org.springframework");
+        List<BeanNode> dependencies = dd.getDependencies("ttl.larku.service");
        dependencies.forEach(node -> {
            System.out.println("***************************************");
            System.out.println("Dependencies for Bean: " + node.getBeanName() + " : " + node.getClazz());

@@ -4,6 +4,7 @@ import java.time.Duration;
 import java.util.List;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import ttl.larku.dao.BaseDAO;
 import ttl.larku.domain.Student;
 import ttl.larku.domain.Student.Status;
@@ -11,6 +12,7 @@ import ttl.larku.domain.StudentCreatedEvent;
 import ttl.larku.service.props.ServiceThatWeDontOwn;
 
 @Service
+@Transactional
 public class StudentService {
 
     private BaseDAO<Student> studentDAO;

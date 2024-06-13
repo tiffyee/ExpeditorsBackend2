@@ -1,9 +1,15 @@
 package expeditors.backend.adoptapp.domain;
 
-import jakarta.persistence.*;
-
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 import java.time.LocalDate;
-import java.util.HashSet;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -24,25 +30,30 @@ public class Adopter {
     @OneToMany(cascade = CascadeType.ALL,
             mappedBy = "adopter",
             orphanRemoval = true)
-    private Set<Pet> pets = new HashSet<>();
+    private List<Pet> pets = new ArrayList<>();
 
-    public Adopter(String name, String phoneNumber, Set<Pet> pets) {
+    public Adopter(String name, String phoneNumber, List<Pet> pets) {
         this.name = name;
         this.phoneNumber = phoneNumber;
         pets.forEach(this::addPet);
     }
 
+    public Adopter(String name, String phoneNumber, Set<Pet> pets) {
+        this(name, phoneNumber, List.copyOf(pets));
+    }
+
     public Adopter(String name, String phoneNumber, LocalDate adoptionDate, List<Pet> pets) {
-        this(name, phoneNumber, Set.copyOf(pets));
+        this(name, phoneNumber, pets);
     }
 
     public Adopter(String name, String phoneNumber, LocalDate adoptionDate, Pet pet) {
-        this(name, phoneNumber, Set.of(pet));
+        this(name, phoneNumber, List.of(pet));
     }
 
-    public Adopter(String name, String phoneNumber, Pet pet) {
-        this(name, phoneNumber, Set.of(pet));
+    public Adopter(String name, String phoneNumber, Pet ...pet) {
+        this(name, phoneNumber, List.of(pet));
     }
+
 
     public Adopter() {
     }
@@ -71,8 +82,8 @@ public class Adopter {
         this.phoneNumber = phoneNumber;
     }
 
-    public Set<Pet> getPets() {
-        return pets;
+    public List<Pet> getPets() {
+        return List.copyOf(pets);
     }
 
     public void setPets(Set<Pet> pets) {

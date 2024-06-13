@@ -9,11 +9,14 @@
 <body>
 <div th:replace="~{fragments/larkUHeader :: header}"></div>
 <h2>All Students</h2>
+<div th:replace="~{fragments/searchHeader :: header}"></div>
+<!--<h2><span th:text="'Students: ' + ${students.size()} + ' Page: ' + ${page} + ' of ' + ${totalPages}"/></h2>-->
 <table border="1">
     <tr>
         <td>Id</td>
         <td>Name</td>
         <td>Status</td>
+        <td>PhoneNumber</td>
         <td>DOB</td>
         <td>Courses</td>
     </tr>
@@ -21,6 +24,7 @@
         <td>[[${student.id}]]</td>
         <td>[[${student.name}]]</td>
         <td>[[${student.status}]]</td>
+        <td>[[${student.phoneNumber}]]</td>
         <td>[[${student.dob}]]</td>
         <div th:if="${student.classes.size() > 0}">
             <td>

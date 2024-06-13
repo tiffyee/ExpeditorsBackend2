@@ -10,13 +10,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
+import org.springframework.context.ApplicationContext;
 
 /**
  * @author whynot
  */
 @SpringBootTest
-@Disabled
+//@Disabled
 public class TestDependencyDiscovererBean {
+
+    @Autowired
+    private ApplicationContext context;
 
     @Autowired
     private DependancyDiscoverer dd;
@@ -33,7 +37,7 @@ public class TestDependencyDiscovererBean {
 
     @Test
     public void testDependenciesWithDDBean() {
-       List<BeanNode> dependencies = dd.getDependencies("hikari");
+       List<BeanNode> dependencies = dd.getDependencies("ttl.larku.service.Course");
        dependencies.forEach(node -> {
            System.out.println("***************************************");
            System.out.println("Dependencies for Bean: " + node.getBeanName() + " : " + node.getClazz());
@@ -43,7 +47,7 @@ public class TestDependencyDiscovererBean {
 
     @Test
     public void testDependantsWithDDBean() {
-        List<BeanNode> dependencies = dd.getDependants("hikari");
+        List<BeanNode> dependencies = dd.getDependants("ttl.larku.service.CourseService");
         dependencies.forEach(node -> {
             System.out.println("***************************************");
             System.out.println("Beans Dependant on: " + node.getBeanName() + " : " + node.getClazz());

@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -26,6 +27,8 @@ import java.util.List;
 		+ "where sc.startDate = :startDate and sc.course.code = :code")
 @NamedQuery(name = "SC.getByCourseCode", query = "select distinct sc from ScheduledClass sc "
 		+ "where sc.course.code = :code")
+@NamedQuery(name = "SC.getAllClassesAndCourses", query = "select distinct sc from ScheduledClass sc "
+      + "left join fetch sc.course")
 public class ScheduledClass {
 
     @Id
@@ -45,7 +48,7 @@ public class ScheduledClass {
     private LocalDate endDate;
 
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Course course;
 
     private static int nextId = 0;
@@ -73,7 +76,7 @@ public class ScheduledClass {
 
     //@JsonIgnore
     public List<Student> getStudents() {
-        return students;
+        return List.copyOf(students);
     }
 
     //@JsonIgnore

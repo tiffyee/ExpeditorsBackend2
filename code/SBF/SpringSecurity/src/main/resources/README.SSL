@@ -1,0 +1,93 @@
+SSL Configurations for client and Tomcat
+are in .../jconfig/security/https and .../jconfig/security/client
+
+To configure the server to use SSL:
+- Make a self signed certificate.  Important - the CN field
+  where it asks you for first and last name, should be set to
+  the hostname, e.g. localhost.
+  keytool -genkeypair -alias larkuspring -keyalg RSA -keysize 2048 -storetype PKCS12
+      -keystore larkUKeyfile.p12
+
+- Create or copy the Tomat
+
+- Make sure you point to this file with the appropriate properties in
+  application.[properties|yml]
+  Look at application-ssl.properties
+
+To configure RestClient to use SSL
+- The Rest Client needs to trust the certificate that the server will send to it when establishing
+  the SSL connection.  For that to work, the certificate that it gets from the Server has to be either
+  a) A Verifiable Certificate which can be verified by the JDK using the cacerts file, or
+  b) A certificate which has been put into a TrustStore that you have set up for the client, or
+  c) An unsatisfying last option is to set up the client to trust self signed certificates.
+     Examples of this in code, but NOT recommended.
+
+- If the server gives us a Verifiable certificate, then nothing more needs to be done and life is good.
+
+- If the server sends us a self signed certificate, or one that is not Verifiable through the cacerts
+  file, then we need to make it Trusted.
+  - You can either add it to the official jdk certificates on your machine
+    (the cacerts file, Also more info below).
+  - Or, you can create your own TrustStore, and add the server's certificate to that.
+
+- In the following code, we are going to assume we have a client running in a service called LarkU,
+  which wants to connect to another service called CourseRatingService.
+
+  - The first thing we have to do is extract the public key from the keyfile of the CourseRatingService.
+    e.g (in the directory with the courseRatingService.p12 file)
+
+    keytool -exportcert -keystore courseRatingService.p12 -storepass password -storetype PKCS12
+                                -alias courserating -file courseRatingPublicKey.cer
+   This will extract the public key from the courseRatingService.p12 file, and put it into a file
+   called courseRatingPublicKey.cer
+
+ - Not we have to decide which TrustStore we want to add this certificate to.
+   - To add it to the official JDK TrustStore:
+    - cd to path_to_your_jdk/lib/security.
+    - You should see a file called 'cacerts' there.
+    - MAKE A BACKUP of that file, e.g. cp cacerts cacerts.bak
+    - import the cer file into cacerts.  The default password for cacerts
+      is 'changeit'.
+
+     keytool -importcert -keystore ./cacerts -storepass changeit -alias courserating
+          -file path_to_CourseRatingService/src/main/resources/courseRatingPublicKey.cer
+
+  - To add the certificate to your own TrustStore:
+    In path_to_LarkU/src/main/resources
+
+     keytool -importcert -keystore larkUTrustStore.p12 -storepass changeit -alias courserating
+          -file path_to_CourseRatingService/src/main/resources/courseRatingPublicKey.cer
+
+     This will create a new TrustStore called larkUTrustStore.p12 with the public key of the
+     CourseRatingService.
+
+  - You now need to point to these TrustStores in the relevant ssl config files.  Look at the
+    application-ssl.properties in the course examples.
+
+  - Restart your services and you should be able to hit it with a simple RestClient
+    and an https url, e.g. https://localhost:8443/adminrest/student
+
+   - To remove your certificate from the a TrustStore file:
+     keytool -delete -alias larkuspring ./nameOfTrustStore -storepass password_of_trust_store -v
+
+- So far, we have only required the Server to send the Client a certificate, which the Client has to be
+  able to verify against whatever TrustStore it has been set up with.
+
+- SSL can also be set up so that the Client is also *required* to send a verifiable certificate to the Server.
+  To make this work we need to:
+  - set the client-auth property on the server to 'need'  (server.ssl.client-auth=need)
+  - Go through all the steps above, but "in reverse", to add the public key of the Client into
+    the TrustStore of the server.
+
+Miscellaneous:
+- To see the private key of a .p12 file:
+openssl pkcs12 -in larkUKeyfile.p12 -nocerts
+
+- To see the public keys of a .p12 file:
+openssl pkcs12 -in larkUKeyfile.p12 -nokeys
+
+# To set up TrustStore using System properties ("VM Options" in the Run Configuration in IntelliJ)
+# -Djavax.net.ssl.trustStore=/tmp/courseTrustStore.p12 -Djavax.net.ssl.trustStorePassword=XXXXX
+
+# To turn on SSL Debug, add this as a System Property ("VM Options" in the Run Configuration in IntelliJ)
+-Djavax.net.debug=ssl:handshake

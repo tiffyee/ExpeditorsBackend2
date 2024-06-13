@@ -9,62 +9,62 @@ import java.util.List;
 public class CourseRepoService implements CourseService {
 
     @Autowired
-    private CourseRepo courseDAO;
+    private CourseRepo courseRepo;
 
     public Course createCourse(String code, String title) {
         Course course = new Course(code, title);
-        course = courseDAO.save(course);
+        course = courseRepo.save(course);
 
         return course;
     }
 
     public Course createCourse(Course course) {
-        course = courseDAO.save(course);
+        course = courseRepo.save(course);
 
         return course;
     }
 
     public boolean deleteCourse(int id) {
-        Course course = courseDAO.findById(id).orElse(null);
+        Course course = courseRepo.findById(id).orElse(null);
         if (course != null) {
-            courseDAO.delete(course);
+            courseRepo.delete(course);
             return true;
         }
         return false;
     }
 
     public boolean updateCourse(Course newCourse) {
-        Course oldCourse = courseDAO.findById(newCourse.getId()).orElse(null);
+        Course oldCourse = courseRepo.findById(newCourse.getId()).orElse(null);
         if(oldCourse != null) {
-            courseDAO.save(newCourse);
+            courseRepo.save(newCourse);
             return true;
         }
         return false;
     }
 
     public Course findByCode(String code) {
-        Course course = courseDAO.findByCode(code).orElse(null);
+        Course course = courseRepo.getByCode(code).orElse(null);
         return course;
     }
 
     public Course getCourse(int id) {
-        return courseDAO.findById(id).orElse(null);
+        return courseRepo.findById(id).orElse(null);
     }
 
     public List<Course> getAllCourses() {
-        return courseDAO.findAll();
+        return courseRepo.findAll();
     }
 
-    public CourseRepo getCourseDAO() {
-        return courseDAO;
+    public CourseRepo getCourseRepo() {
+        return courseRepo;
     }
 
-    public void setCourseDAO(CourseRepo courseDAO) {
-        this.courseDAO = courseDAO;
+    public void setCourseRepo(CourseRepo courseRepo) {
+        this.courseRepo = courseRepo;
     }
 
     public void clear() {
-        courseDAO.deleteAll();
+        courseRepo.deleteAll();
         //courseDAO.createStore();
     }
 }

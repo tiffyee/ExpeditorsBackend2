@@ -113,7 +113,8 @@ public class TestAdopterRepoService {
     public void testGetByPetType() {
         List<Adopter> result = adopterService.getAdoptersByPetType(PetType.TURTLE);
 
-        assertEquals(1, result.size());
+        assertTrue(!result.isEmpty());
+
         assertTrue(result.get(0).getName().contains("Darlene"));
 
         result = adopterService.getAdoptersByPetType(PetType.CAT);

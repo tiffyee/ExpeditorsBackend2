@@ -11,6 +11,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockHttpServletResponse;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.ResultActions;
@@ -53,6 +54,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 //cheapest way to go back to the initial state.
 @Transactional
 @Tag("mvc")
+@WithMockUser(roles = "ADMIN")
 public class StudentRestControllerMvcTest extends SqlScriptBase {
 
     @Autowired
@@ -105,7 +107,7 @@ public class StudentRestControllerMvcTest extends SqlScriptBase {
     }
 
     @Test
-    public void testAddStudentGood() throws Exception {
+    public void testAddStudentWithGoodUserGives201() throws Exception {
 
         Student student = new Student("Yogita");
         student.setPhoneNumber("202 383-9393");
@@ -128,6 +130,22 @@ public class StudentRestControllerMvcTest extends SqlScriptBase {
 
         jsonString = response.getContentAsString();
         System.out.println("resp = " + jsonString);
+
+    }
+
+    @Test
+    @WithMockUser(roles = "USER")
+    public void testAddStudentWithBadUserGives403() throws Exception {
+
+        Student student = new Student("Yogita");
+        student.setPhoneNumber("202 383-9393");
+        ObjectMapper mapper = new ObjectMapper();
+        String jsonString = mapper.writeValueAsString(student);
+
+        ResultActions actions = mockMvc.perform(post("/adminrest/student").accept(MediaType.APPLICATION_JSON)
+              .contentType(MediaType.APPLICATION_JSON).content(jsonString));
+
+        actions = actions.andExpect(status().isForbidden());
 
     }
 

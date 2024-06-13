@@ -1,0 +1,34 @@
+- A good article on how to properly set up a trustStore to do mutual certificate authentication.
+https://medium.com/@salarai.de/how-to-enable-mutual-tls-in-a-sprint-boot-application-77144047940f
+Almost Works!!  But not yet for Bundles.
+For our situation:
+    RootCA and Certificate
+
+    - openssl genrsa -des3 -out rootCA.key 2048
+    - openssl req -x509 -new -nodes -key rootCA.key -sha256 -days 1825 -out rootCA.pem
+
+    Generate courserating Server certificates
+    Key
+    - openssl genrsa -des3 -out courserating.key 2048
+    CSR
+    - openssl req -new -sha256 -key courserating.key -out courserating.csr
+    Signed Certificate
+    - openssl x509 -req -in courserating.csr -CA rootCA.pem -CAkey rootCA.key -CAcreateserial -out courserating.pem -days 365 -sha256
+
+    Generate larku Client certificates
+    Key
+    - openssl genrsa -des3 -out larkUClientKey.key 2048
+    CSR
+    - openssl req -new -sha256 -key larkUClientKey.key -out larkUClientCSR.csr
+    Signed Certificate
+    - openssl x509 -req -in larkUClientCSR.csr -CA rootCA.pem -CAkey rootCA.key -CAcreateserial -out larkUClientPem.pem -days 365 -sha256
+
+    Now convert the courserating.pem file to .p12 for Java
+    - openssl pkcs12 -export -in courserating.pem -out courseRatingKeyfile.p12 -name courserating -nodes -inkey courserating.key
+
+    And finally, create a truststore for the CourseRatingService to be able to trust the
+    certificate we will send it from the client when/if we turn on client-auth: need
+    - keytool -import -file rootCA.pem -alias rootCA -keystore courseratingTrustStore.p12
+
+    Use the courserating.p12 file as the keyfile in the courseservice.
+    Use the tru.p12 file as the keyfile in the courseservice.

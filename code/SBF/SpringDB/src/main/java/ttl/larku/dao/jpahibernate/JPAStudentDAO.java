@@ -1,15 +1,14 @@
 package ttl.larku.dao.jpahibernate;
 
-import org.springframework.context.annotation.Profile;
-import org.springframework.transaction.annotation.Transactional;
-import ttl.larku.dao.BaseDAO;
-import ttl.larku.domain.Student;
-
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.Query;
 import jakarta.persistence.TypedQuery;
 import java.util.List;
+import org.springframework.context.annotation.Profile;
+import org.springframework.transaction.annotation.Transactional;
+import ttl.larku.dao.BaseDAO;
+import ttl.larku.domain.Student;
 
 @Transactional
 @Profile("production")

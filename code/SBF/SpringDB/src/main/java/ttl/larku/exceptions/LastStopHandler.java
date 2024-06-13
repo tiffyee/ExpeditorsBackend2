@@ -1,7 +1,13 @@
 package ttl.larku.exceptions;
 
+import java.util.ArrayList;
+import java.util.List;
 import org.springframework.beans.TypeMismatchException;
-import org.springframework.http.*;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -9,21 +15,18 @@ import org.springframework.web.HttpMediaTypeNotAcceptableException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 import ttl.larku.controllers.rest.RestResultWrapper;
 
-import java.util.ArrayList;
-import java.util.List;
-
-@RestControllerAdvice
+//@RestControllerAdvice
 public class LastStopHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(value = {Throwable.class})
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     protected RestResultWrapper<?> lastPortOfCall(Exception ex, WebRequest request) {
         RestResultWrapper<?> rr = RestResultWrapper.ofError("Unexpected Exception: " + ex);
+        ex.printStackTrace();
         return rr;
     }
 

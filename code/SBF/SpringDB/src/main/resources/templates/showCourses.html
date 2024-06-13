@@ -17,12 +17,14 @@
         <td>Code</td>
         <td>Title</td>
         <td>Credit</td>
+        <td>Instant Rating</td>
     </tr>
     <tr th:each="course : ${courses}">
         <td>[[${course.id}]]</td>
         <td>[[${course.code}]]</td>
         <td>[[${course.title}]]</td>
         <td>[[${course.credits}]]</td>
+        <td>[[${course.rating}]]</td>
     </tr>
 </table>
 <br/> <a href="/">Home</a></td>

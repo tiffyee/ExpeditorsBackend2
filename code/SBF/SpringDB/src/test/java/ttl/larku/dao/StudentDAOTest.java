@@ -1,25 +1,24 @@
 package ttl.larku.dao;
 
+import java.time.LocalDate;
+import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import ttl.larku.dao.jpahibernate.JPAStudentDAO;
 import ttl.larku.domain.Student;
 import ttl.larku.sql.SqlScriptBase;
 
-import java.time.LocalDate;
-import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
+@SpringBootTest
 //@Sql(scripts = { "/ttl/larku/db/createDB-h2.sql", "/ttl/larku/db/populateDB-h2.sql" }, executionPhase= Sql.ExecutionPhase.BEFORE_TEST_METHOD)
-//@Transactional
+@Transactional
 @Tag("dao")
 public class StudentDAOTest extends SqlScriptBase {
 
@@ -30,6 +29,7 @@ public class StudentDAOTest extends SqlScriptBase {
 	private Student student2;
 
 	@Autowired
+	@Qualifier("jpaStudentDAO")
 	private JPAStudentDAO dao;
 
 	@Autowired
@@ -49,7 +49,7 @@ public class StudentDAOTest extends SqlScriptBase {
 	//Turn off Transactions by uncommenting @Transactional
 	//If you then try and print the collection, you will
 	//get a Lazy Instantiation Exception.
-	@Transactional(propagation = Propagation.REQUIRED)
+//	@Transactional(propagation = Propagation.REQUIRED)
 	public void testGetAll() {
 //		List<Student> students = dao.getAll();
 		List<Student> students = dao.getAllForLIE();

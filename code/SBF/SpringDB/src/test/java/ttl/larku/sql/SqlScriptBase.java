@@ -1,15 +1,13 @@
 package ttl.larku.sql;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+import javax.sql.DataSource;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.TestInstance;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.jdbc.datasource.init.ScriptUtils;
-import org.springframework.transaction.annotation.Transactional;
-
-import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.SQLException;
 
 
 /**
@@ -29,7 +27,7 @@ import java.sql.SQLException;
  */
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-@Transactional
+//@Transactional
 public abstract class SqlScriptBase {
 
     /**

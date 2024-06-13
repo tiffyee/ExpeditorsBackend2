@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <link type="text/css" rel="stylesheet" media="all"
+          href=# th:href="@{/css/larkU.css}">
+    <title>Trackerator</title>
+</head>
+<body>
+<div th:replace="~{fragments/larkUHeader :: header}"></div>
+<h2>Track Info</h2>
+<table border="1">
+    <tr>
+        <td>Id</td>
+        <td>[[${track.trackId}]]</td>
+    </tr>
+    <tr>
+        <td>Cover</td>
+        <td><img th:src="${track.imageUrl}" width="400px" height="400px"/></td>
+    </tr>
+    <tr>
+        <td>Title</td>
+        <td>[[${track.title}]]</td>
+    </tr>
+    <tr>
+        <td>Album</td>
+        <td>[[${track.album}]]</td>
+    </tr>
+    <tr>
+        <td>Group</td>
+        <td>[[${track.group}]]</td>
+    </tr>
+    <tr>
+        <td>Genre</td>
+        <td>[[${track.genre}]]</td>
+    </tr>
+    <tr>
+        <td>Duration</td>
+        <td>[[${track.duration}]]</td>
+    </tr>
+    <tr>
+        <td>Year</td>
+        <td>[[${track.releaseYear}]]</td>
+    </tr>
+    <tr>
+        <td>Format</td>
+        <td>[[${track.format}]]</td>
+    </tr>
+    <tr>
+        <td>Instant Price</td>
+        <td>[[${track.price}]]</td>
+    </tr>
+    <tr>
+        <td>Artists</td>
+        <td>
+           <span th:each="artist : ${track.artists}">
+                [[${artist}]]<p>
+           </span>
+        </td>
+    </tr>
+</table>
+<br/>
+<!--<div>-->
+<!--    <table>-->
+<!--        <tr>-->
+<!--            <td>-->
+<!--                <form th:action="@{/pets/addPetToAdopter(trackId=${track.trackId})}"-->
+<!--                      method="get" th:object="${artist}">-->
+<!--                    <input type="hidden" name="adopterId" th:value="${adopter.id}"/>-->
+<!--                    <input type="submit" value="Add Pet"/>-->
+<!--                </form>-->
+<!--            </td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td>-->
+<!--                <form th:action="@{/pets/removePetFromAdopter(adopterId=${adopter.id})}"-->
+<!--                      method="post" th:object="${pet}">-->
+<!--                    <input type="submit" value="Remove Pet With Id"/>-->
+<!--                    <input type="text" name="petId"/>-->
+<!--                    <input type="hidden" th:value="${adopter.id}"/>-->
+<!--                </form>-->
+<!--            </td>-->
+<!--        </tr>-->
+<!--    </table>-->
+<!--</div>-->
+<br/>
+<a th:href="@{/tracks}">All Tracks</a>
+<p>
+<a th:href="@{/}">Home</a>
+<div th:replace="~{fragments/discogsFooter :: footer}"></div>
+</body>
+</html>

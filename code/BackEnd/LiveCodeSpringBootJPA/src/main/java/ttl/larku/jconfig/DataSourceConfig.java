@@ -1,13 +1,11 @@
 package ttl.larku.jconfig;
 
 import javax.sql.DataSource;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
-@Configuration
+//@Configuration
 public class DataSourceConfig {
-   @Bean
+//   @Bean
    public DataSource dataSource() {
       String url = "jdbc:postgresql://localhost:5433/larku";
       String user = "larku";

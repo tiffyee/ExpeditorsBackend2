@@ -2,11 +2,9 @@ package ttl.larku.dao;
 
 import jakarta.persistence.*;
 import org.hibernate.LazyInitializationException;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.jdbc.Sql;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import ttl.larku.domain.ScheduledClass;
@@ -21,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
+@SpringBootTest
 //@Sql(scripts = {"/schema-h2.sql", "/data-h2.sql"}, executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
 @Transactional
 @Tag("dao")
@@ -36,7 +34,7 @@ public class JPAqlTests extends SqlScriptBase {
 
     @Test
     @Transactional
-    public void testWierdBehaviourWithToStringAndManyToMany() {
+    public void testWeirdBehaviourWithToStringAndManyToMany() {
         //This has to do with weird interaction with the IDE.
         // If we include 'classes' in the toString method of Student,
         // it seems to invoke eager loading of the
@@ -101,10 +99,10 @@ public class JPAqlTests extends SqlScriptBase {
     // NEVER run this method in a Transaction.
     // You should see the LIE on the line where we are trying to
     // get the size of the student list.  This will be done outside
-    // of a transaction, so no automatic fetching can happen, and you
+    // a transaction, so no automatic fetching can happen, and you
     // get the LIE.
     // If you comment out the @Transaction line, then you
-    // will NOT get an LIE because now the you are trying to do something
+    // will NOT get an LIE because now you are trying to do something
     // with 'student' in a transaction.  But you will see the N+1 issue,
     // where Hibernate will do a seperate select from each student in the
     // class.
@@ -125,6 +123,7 @@ public class JPAqlTests extends SqlScriptBase {
             query.setParameter("code", code);
 
             List<ScheduledClass> result = query.getResultList();
+
             result.forEach(System.out::println);
             assertEquals(1, result.size());
             assertEquals(2, result.get(0).getStudents().size());

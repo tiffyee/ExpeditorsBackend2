@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
+@SpringBootTest
 //@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE,
 ////        properties = {"ttl.sql.schema-file=/ttl/larku/db/createDB-h2.sql",
 //                "ttl.larku.data-file=/ttl/larku/db/populateDB-h2.sql"})

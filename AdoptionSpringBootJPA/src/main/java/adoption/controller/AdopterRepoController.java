@@ -16,6 +16,14 @@ public class AdopterRepoController {
     @Autowired
     private AdopterRepoService adopterRepoService;
 
+    @Autowired
+    private UriCreator uriCreator;
+
+    public AdopterRepoController(AdopterRepoService adopterRepoService, UriCreator uriCreator){
+        this.adopterRepoService = adopterRepoService;
+        this.uriCreator = uriCreator;
+    }
+
     @GetMapping
     public List<Adopter> findAll(){
         return adopterRepoService.findAll();

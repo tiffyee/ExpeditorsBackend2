@@ -19,7 +19,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
+@SpringBootTest
 //Populate your DB.  From Most Expensive to least expensive
 
 //This will make recreate the context after every test.
@@ -48,9 +48,11 @@ public class RegistrationRepoServiceTest extends SqlScriptBase {
     private String title1 = "Intro To Botany";
     private String title2 = "Outtro To Botany";
 
-    private LocalDate startDate1 = LocalDate.parse("2022-10-10");
+//    private LocalDate startDate1 = LocalDate.parse("2022-10-10");
+    private LocalDate startDate1 = LocalDate.parse("2024-12-10");
     private LocalDate startDate2 = LocalDate.parse("2023-10-10");
-    private LocalDate endDate1 = LocalDate.parse("2023-05-10");
+    //private LocalDate endDate1 = LocalDate.parse("2023-05-10");
+    private LocalDate endDate1 = LocalDate.parse("2025-10-10");
     private LocalDate endDate2 = LocalDate.parse("2024-05-10");
 
     private LocalDate badStartDate = LocalDate.parse("2099-12-12");

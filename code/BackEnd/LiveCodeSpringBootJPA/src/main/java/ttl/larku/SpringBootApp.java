@@ -81,7 +81,7 @@ public class SpringBootApp {
     }
 }
 
-@Component
+//@Component
 class DBInitializer implements CommandLineRunner
 {
     @Autowired

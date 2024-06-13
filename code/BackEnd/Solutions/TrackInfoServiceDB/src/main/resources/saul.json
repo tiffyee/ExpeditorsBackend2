@@ -1,0 +1,311 @@
+{
+  "pagination": {
+    "page": 1,
+    "pages": 1,
+    "per_page": 50,
+    "items": 20,
+    "urls": {}
+  },
+  "results": [
+    {
+      "id": 4847,
+      "type": "artist",
+      "user_data": {
+        "in_wantlist": false,
+        "in_collection": false
+      },
+      "master_id": null,
+      "master_url": null,
+      "uri": "/artist/4847-Saul-Williams",
+      "title": "Saul Williams",
+      "thumb": "https://i.discogs.com/fsrBgOxi7C-rse_WkxzAfJPLXoS0XbW--iI2HeZfLL0/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTQ4NDct/MTUxMTk4MzU1NS0y/ODg2LmpwZWc.jpeg",
+      "cover_image": "https://i.discogs.com/vtGZtLrFJVBIfKsduoE51ik9Xh7kUbLdvig96EEiids/rs:fit/g:sm/q:90/h:698/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTQ4NDct/MTUxMTk4MzU1NS0y/ODg2LmpwZWc.jpeg",
+      "resource_url": "https://api.discogs.com/artists/4847"
+    },
+    {
+      "id": 751564,
+      "type": "artist",
+      "user_data": {
+        "in_wantlist": false,
+        "in_collection": false
+      },
+      "master_id": null,
+      "master_url": null,
+      "uri": "/artist/751564-Saul-Simon-MacWilliams",
+      "title": "Saul Simon-MacWilliams",
+      "thumb": "",
+      "cover_image": "https://st.discogs.com/e0f25e3b78953715a1b240c81572225c8f290d15/images/spacer.gif",
+      "resource_url": "https://api.discogs.com/artists/751564"
+    },
+    {
+      "id": 296836,
+      "type": "artist",
+      "user_data": {
+        "in_wantlist": false,
+        "in_collection": false
+      },
+      "master_id": null,
+      "master_url": null,
+      "uri": "/artist/296836-Ray-7",
+      "title": "Ray (7)",
+      "thumb": "",
+      "cover_image": "https://st.discogs.com/e0f25e3b78953715a1b240c81572225c8f290d15/images/spacer.gif",
+      "resource_url": "https://api.discogs.com/artists/296836"
+    },
+    {
+      "id": 163566,
+      "type": "artist",
+      "user_data": {
+        "in_wantlist": false,
+        "in_collection": false
+      },
+      "master_id": null,
+      "master_url": null,
+      "uri": "/artist/163566-Thavius-Beck",
+      "title": "Thavius Beck",
+      "thumb": "https://i.discogs.com/RFvoo5xgCJwSoylN90jidGFf7SpAZ9WHcZEK8g-V1Lk/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTE2MzU2/Ni0xNTExNjEwNzU2/LTY2MTcuanBlZw.jpeg",
+      "cover_image": "https://i.discogs.com/gznJ9DCoTl-BCXEikTz5psuTTs4Z3XLrbEn9QamsZCA/rs:fit/g:sm/q:90/h:634/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTE2MzU2/Ni0xNTExNjEwNzU2/LTY2MTcuanBlZw.jpeg",
+      "resource_url": "https://api.discogs.com/artists/163566"
+    },
+    {
+      "id": 113396,
+      "type": "artist",
+      "user_data": {
+        "in_wantlist": false,
+        "in_collection": false
+      },
+      "master_id": null,
+      "master_url": null,
+      "uri": "/artist/113396-Kong-2",
+      "title": "Kong (2)",
+      "thumb": "",
+      "cover_image": "https://st.discogs.com/e0f25e3b78953715a1b240c81572225c8f290d15/images/spacer.gif",
+      "resource_url": "https://api.discogs.com/artists/113396"
+    },
+    {
+      "id": 6493436,
+      "type": "artist",
+      "user_data": {
+        "in_wantlist": false,
+        "in_collection": false
+      },
+      "master_id": null,
+      "master_url": null,
+      "uri": "/artist/6493436-Jake-Long-3",
+      "title": "Jake Long (3)",
+      "thumb": "https://i.discogs.com/hZtDO42HP92W0-B5HnCoNnNLSrAaa80kglKOe6ogoL8/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTY0OTM0/MzYtMTY5MjA5NTA3/NC0yNTcxLmpwZWc.jpeg",
+      "cover_image": "https://i.discogs.com/ZuPfu6t0ehiVdx-kQmS5E6o5Gl2k5zZu84QvdcC2HiQ/rs:fit/g:sm/q:90/h:399/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTY0OTM0/MzYtMTY5MjA5NTA3/NC0yNTcxLmpwZWc.jpeg",
+      "resource_url": "https://api.discogs.com/artists/6493436"
+    },
+    {
+      "id": 8582,
+      "type": "artist",
+      "user_data": {
+        "in_wantlist": false,
+        "in_collection": false
+      },
+      "master_id": null,
+      "master_url": null,
+      "uri": "/artist/8582-Mia-Doi-Todd",
+      "title": "Mia Doi Todd",
+      "thumb": "https://i.discogs.com/82w_hVLxBYuBQSbQuYpk1vS3SKqym1Ki5fB1zMLC2Gc/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTg1ODIt/MTU4NzkxNzU1OS00/NTUwLmpwZWc.jpeg",
+      "cover_image": "https://i.discogs.com/ZeGlQZSuEeR5jdQG5IpADvAoO8B1vulsjjz-bdq9bA8/rs:fit/g:sm/q:90/h:740/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTg1ODIt/MTU4NzkxNzU1OS00/NTUwLmpwZWc.jpeg",
+      "resource_url": "https://api.discogs.com/artists/8582"
+    },
+    {
+      "id": 2140686,
+      "type": "artist",
+      "user_data": {
+        "in_wantlist": false,
+        "in_collection": false
+      },
+      "master_id": null,
+      "master_url": null,
+      "uri": "/artist/2140686-Fat-Beat-Squad",
+      "title": "Fat Beat Squad",
+      "thumb": "https://i.discogs.com/2z9_X_78Jm4hdYsjx4zBgzdNP9AW47H38dQ3vfUY0kU/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTIxNDA2/ODYtMTY2Mjg1ODYz/MC04ODE4LnBuZw.jpeg",
+      "cover_image": "https://i.discogs.com/-KuX7J9FDDoZjKBe-ALqzfko6vqaU7bREbb3uYyZ754/rs:fit/g:sm/q:90/h:312/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTIxNDA2/ODYtMTY2Mjg1ODYz/MC04ODE4LnBuZw.jpeg",
+      "resource_url": "https://api.discogs.com/artists/2140686"
+    },
+    {
+      "id": 1879546,
+      "type": "artist",
+      "user_data": {
+        "in_wantlist": false,
+        "in_collection": false
+      },
+      "master_id": null,
+      "master_url": null,
+      "uri": "/artist/1879546-Sol-Guy",
+      "title": "Sol Guy",
+      "thumb": "https://i.discogs.com/tLUhl6cpiOIkDHytdVh-qjduYVLWgIT9O0WETuEY7aU/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTE4Nzk1/NDYtMTYxNDA3NDU1/MC03NDM1LmpwZWc.jpeg",
+      "cover_image": "https://i.discogs.com/syUCk0iwg5DAJJ-Zv7d9Zm0HG4YdgjWRLkDwC0s4X9Q/rs:fit/g:sm/q:90/h:272/w:186/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTE4Nzk1/NDYtMTYxNDA3NDU1/MC03NDM1LmpwZWc.jpeg",
+      "resource_url": "https://api.discogs.com/artists/1879546"
+    },
+    {
+      "id": 812653,
+      "type": "artist",
+      "user_data": {
+        "in_wantlist": false,
+        "in_collection": false
+      },
+      "master_id": null,
+      "master_url": null,
+      "uri": "/artist/812653-The-Lions-2",
+      "title": "The Lions (2)",
+      "thumb": "https://i.discogs.com/NrwFrOYiSnDY7oZm1k1f63fthffnHDTU_b7qpN42V4g/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTgxMjY1/My0xMzY1ODc2NDg5/LTIzNzIuanBlZw.jpeg",
+      "cover_image": "https://i.discogs.com/WWTmzjCIJwPI3kGbexnJYJ9qEbBdCj_JB7wS5FL3w6Y/rs:fit/g:sm/q:90/h:455/w:455/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTgxMjY1/My0xMzY1ODc2NDg5/LTIzNzIuanBlZw.jpeg",
+      "resource_url": "https://api.discogs.com/artists/812653"
+    },
+    {
+      "id": 510351,
+      "type": "artist",
+      "user_data": {
+        "in_wantlist": false,
+        "in_collection": false
+      },
+      "master_id": null,
+      "master_url": null,
+      "uri": "/artist/510351-Black-Shakespeare",
+      "title": "Black Shakespeare",
+      "thumb": "https://i.discogs.com/8n4YTHnPLeyf8Jp8eJFuFlEaBO5cW7KoVCNf1ByQjEs/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTUxMDM1/MS0xNDM3MDc5Nzk0/LTIyMTcuanBlZw.jpeg",
+      "cover_image": "https://i.discogs.com/QMQg1v53sutyFTsYtwWUkuJWcjB3ZeI-h3aRM1Rfmt0/rs:fit/g:sm/q:90/h:400/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTUxMDM1/MS0xNDM3MDc5Nzk0/LTIyMTcuanBlZw.jpeg",
+      "resource_url": "https://api.discogs.com/artists/510351"
+    },
+    {
+      "id": 1898272,
+      "type": "artist",
+      "user_data": {
+        "in_wantlist": false,
+        "in_collection": false
+      },
+      "master_id": null,
+      "master_url": null,
+      "uri": "/artist/1898272-Susanna-La-Polla",
+      "title": "Susanna La Polla",
+      "thumb": "https://i.discogs.com/DBD6I2yh8_eDOTwLHuNT-ltl3VooLGQJ7wgdLAqoEcA/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTE4OTgy/NzItMTQzNDcxMDEx/NS04MDYxLmpwZWc.jpeg",
+      "cover_image": "https://i.discogs.com/zdq-UPIkVil3hzpg0AOqMh9Nxndiho5jk8mvN5OUcRA/rs:fit/g:sm/q:90/h:800/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTE4OTgy/NzItMTQzNDcxMDEx/NS04MDYxLmpwZWc.jpeg",
+      "resource_url": "https://api.discogs.com/artists/1898272"
+    },
+    {
+      "id": 554803,
+      "type": "artist",
+      "user_data": {
+        "in_wantlist": false,
+        "in_collection": false
+      },
+      "master_id": null,
+      "master_url": null,
+      "uri": "/artist/554803-Desdamona",
+      "title": "Desdamona",
+      "thumb": "https://i.discogs.com/g7KdqXwvqObSB9aZGsqURPoBdQLwjWwYvZr8H6Seg9Y/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTU1NDgw/My0xNDA5NTA5Nzcy/LTg4NzIuanBlZw.jpeg",
+      "cover_image": "https://i.discogs.com/opVB0KEANv6ok7nf4b2mFD5qyJaBNK_T_PtojkYmXrE/rs:fit/g:sm/q:90/h:399/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTU1NDgw/My0xNDA5NTA5Nzcy/LTg4NzIuanBlZw.jpeg",
+      "resource_url": "https://api.discogs.com/artists/554803"
+    },
+    {
+      "id": 5210146,
+      "type": "artist",
+      "user_data": {
+        "in_wantlist": false,
+        "in_collection": false
+      },
+      "master_id": null,
+      "master_url": null,
+      "uri": "/artist/5210146-Richard-K-Pugsley",
+      "title": "Richard K. Pugsley",
+      "thumb": "https://i.discogs.com/hPwok4EM_u3JEKtjCr9ZBf_1wxjoV4fW7A6oVcM5pXk/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTUyMTAx/NDYtMTQ3MjAzNzYw/Mi04NjY5LmpwZWc.jpeg",
+      "cover_image": "https://i.discogs.com/NRLGtVLAgEdIoBbFrBzHc8jHAks3ue-hiimgUPxI9YA/rs:fit/g:sm/q:90/h:448/w:397/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTUyMTAx/NDYtMTQ3MjAzNzYw/Mi04NjY5LmpwZWc.jpeg",
+      "resource_url": "https://api.discogs.com/artists/5210146"
+    },
+    {
+      "id": 5732448,
+      "type": "artist",
+      "user_data": {
+        "in_wantlist": false,
+        "in_collection": false
+      },
+      "master_id": null,
+      "master_url": null,
+      "uri": "/artist/5732448-The-Phormula",
+      "title": "The Phormula",
+      "thumb": "https://i.discogs.com/MYc52JGGy0NIKOLe0spZTwV1RHzcdZ6PSxTvJt5bBKA/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTU3MzI0/NDgtMTYzOTI4NDU1/Ny00ODkxLmpwZWc.jpeg",
+      "cover_image": "https://i.discogs.com/DCgOsjwGWgyvS58D4L2pK_uzuSOVjKD9JIj_sgiEDlg/rs:fit/g:sm/q:90/h:145/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTU3MzI0/NDgtMTYzOTI4NDU1/Ny00ODkxLmpwZWc.jpeg",
+      "resource_url": "https://api.discogs.com/artists/5732448"
+    },
+    {
+      "id": 41589,
+      "type": "artist",
+      "user_data": {
+        "in_wantlist": false,
+        "in_collection": false
+      },
+      "master_id": null,
+      "master_url": null,
+      "uri": "/artist/41589-Hu-Vibrational",
+      "title": "Hu Vibrational",
+      "thumb": "https://i.discogs.com/Zf9ZfodfGyT8ziKIhPj1AF2c3RARdfxQCZE5uS-vhj4/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTQxNTg5/LTExMDA5NDY5Mjcu/Z2lm.jpeg",
+      "cover_image": "https://i.discogs.com/C60UHqqvT9ii0ahEHR4RWxdJ9145Zg2duLBumvlUrSI/rs:fit/g:sm/q:90/h:395/w:590/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTQxNTg5/LTExMDA5NDY5Mjcu/Z2lm.jpeg",
+      "resource_url": "https://api.discogs.com/artists/41589"
+    },
+    {
+      "id": 709086,
+      "type": "artist",
+      "user_data": {
+        "in_wantlist": false,
+        "in_collection": false
+      },
+      "master_id": null,
+      "master_url": null,
+      "uri": "/artist/709086-C-Zam",
+      "title": "C-Zam",
+      "thumb": "https://i.discogs.com/0CphdjtpvMVBK4D985RkbXivNM6bmIwU2joOnqIT-Kg/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTcwOTA4/Ni0xMzk4ODA5NDYz/LTQyNzAuanBlZw.jpeg",
+      "cover_image": "https://i.discogs.com/rOiOUeAWlqKWUfYNeLlsK9fGADVKFhctTMFcGK8WkYc/rs:fit/g:sm/q:90/h:210/w:312/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTcwOTA4/Ni0xMzk4ODA5NDYz/LTQyNzAuanBlZw.jpeg",
+      "resource_url": "https://api.discogs.com/artists/709086"
+    },
+    {
+      "id": 2883866,
+      "type": "artist",
+      "user_data": {
+        "in_wantlist": false,
+        "in_collection": false
+      },
+      "master_id": null,
+      "master_url": null,
+      "uri": "/artist/2883866-Rod-Roc",
+      "title": "Rod Roc",
+      "thumb": "https://i.discogs.com/sf-z4UNw_T9fTJ_BFN6omIFtErdVag9XkMgqQBOYAP8/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTI4ODM4/NjYtMTU1MTQwNTA0/OS0zNjczLmpwZWc.jpeg",
+      "cover_image": "https://i.discogs.com/-3hJ8eGPfjOy2R5utEL3GQYyn9_ZB5bk9PDX8DlBXj0/rs:fit/g:sm/q:90/h:500/w:500/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTI4ODM4/NjYtMTU1MTQwNTA0/OS0zNjczLmpwZWc.jpeg",
+      "resource_url": "https://api.discogs.com/artists/2883866"
+    },
+    {
+      "id": 6282754,
+      "type": "artist",
+      "user_data": {
+        "in_wantlist": false,
+        "in_collection": false
+      },
+      "master_id": null,
+      "master_url": null,
+      "uri": "/artist/6282754-Know-Boundaries",
+      "title": "Know Boundaries",
+      "thumb": "https://i.discogs.com/XGQ4DrcVK0OiyF5DN-0Op5MA5BqcOGjEk6AMI06x678/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTYyODI3/NTQtMTUxNzYxOTQ0/OC01NjE3LmpwZWc.jpeg",
+      "cover_image": "https://i.discogs.com/SCXB0_-dGZt6PHJECd6iNnGCh95pJix--MwEziezWOw/rs:fit/g:sm/q:90/h:399/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTYyODI3/NTQtMTUxNzYxOTQ0/OC01NjE3LmpwZWc.jpeg",
+      "resource_url": "https://api.discogs.com/artists/6282754"
+    },
+    {
+      "id": 12063163,
+      "type": "artist",
+      "user_data": {
+        "in_wantlist": false,
+        "in_collection": false
+      },
+      "master_id": null,
+      "master_url": null,
+      "uri": "/artist/12063163-Jjanice",
+      "title": "Jjanice +",
+      "thumb": "https://i.discogs.com/-3j5y0FaAMrLHtJyX-nAjWaJZKw77zndjGrcAUv7QBw/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTEyMDYz/MTYzLTE2Njc5MzY2/MjktOTg0My5qcGVn.jpeg",
+      "cover_image": "https://i.discogs.com/GXJ_feLMLTbd79JKSWBqF355OIXqWQebNtSBKlMUovE/rs:fit/g:sm/q:90/h:470/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTEyMDYz/MTYzLTE2Njc5MzY2/MjktOTg0My5qcGVn.jpeg",
+      "resource_url": "https://api.discogs.com/artists/12063163"
+    }
+  ]
+}

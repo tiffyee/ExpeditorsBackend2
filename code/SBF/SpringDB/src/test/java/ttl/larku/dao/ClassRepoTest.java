@@ -19,7 +19,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
+@SpringBootTest
 //properties = {"ttl.sql.schema-file=/ttl/larku/db/createDB-h2.sql", "ttl.larku.data-file=/ttl/larku/db/populateDB-h2.sql"})
 //@DataJpaTest
 //Populate your DB.  From Most Expensive to least expensive

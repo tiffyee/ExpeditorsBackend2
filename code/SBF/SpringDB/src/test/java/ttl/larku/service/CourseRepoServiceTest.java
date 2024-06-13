@@ -19,7 +19,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
-@SpringBootTest(webEnvironment = WebEnvironment.NONE)
+@SpringBootTest
 //Populate your DB.  From Most Expensive to least expensive
 
 //This will make recreate the context after every test.

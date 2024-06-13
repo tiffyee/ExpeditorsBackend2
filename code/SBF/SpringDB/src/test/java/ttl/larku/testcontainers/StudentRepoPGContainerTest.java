@@ -74,7 +74,7 @@ public class StudentRepoPGContainerTest {
         //Initialize
         var containerDelegate = new JdbcDatabaseDelegate(postgresContainer, "");
 
-        ScriptUtils.runInitScript(containerDelegate, "sql/postgres/3-postgress-larku-schema.sql");
+        ScriptUtils.runInitScript(containerDelegate, "sql/postgres/3-postgres-larku-schema.sql");
         ScriptUtils.runInitScript(containerDelegate, "sql/postgres/5-postgress-larku-data.sql");
     }
 

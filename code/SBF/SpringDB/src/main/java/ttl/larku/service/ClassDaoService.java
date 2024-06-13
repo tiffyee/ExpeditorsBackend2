@@ -1,5 +1,6 @@
 package ttl.larku.service;
 
+import jakarta.persistence.TypedQuery;
 import ttl.larku.dao.BaseDAO;
 import ttl.larku.dao.jpahibernate.JPAClassDAO;
 import ttl.larku.domain.Course;

@@ -33,7 +33,7 @@ public class InitDB {
       String user = "larku";
       String pw = "larku";
       DriverManagerDataSource dataSource = new DriverManagerDataSource(url, user, pw);
-      String schemaFile = "sql/postgres/3-postgres-larku_schema.sql";
+      String schemaFile = "sql/postgres/3-postgres-larku-schema.sql";
       String dataFile = "sql/postgres/4-postgress-larku-data.sql";
 
       JdbcClient jdbcClient = JdbcClient.create(dataSource);

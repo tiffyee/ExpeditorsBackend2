@@ -72,9 +72,6 @@ public class JPADemo {
       Course course = null;
       try (EntityManager manager = emf.createEntityManager();) {
          course = manager.find(Course.class, 1);
-      }
-
-      try (EntityManager manager = emf.createEntityManager();) {
 
          manager.getTransaction().begin();
 

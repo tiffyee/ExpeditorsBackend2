@@ -5,8 +5,15 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Transient;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
@@ -16,6 +23,7 @@ import java.util.List;
 import java.util.Objects;
 
 
+@Entity
 public class Student {
 
    public enum Status {
@@ -24,6 +32,8 @@ public class Student {
       HIBERNATING
    }
 
+   @Id
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
    private int id;
 
    @NotNull
@@ -32,6 +42,8 @@ public class Student {
    //    @Size(min = 10, message = "Phonenumber must be at least 10 digits")
    @NotNull
    @Valid
+   @OneToMany(fetch = FetchType.LAZY, mappedBy = "student", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+//   @JoinColumn(name = "student_id", referencedColumnName = "id")
    private List<PhoneNumber> phoneNumbers = new ArrayList<>();
 
    @JsonDeserialize(using = LocalDateDeserializer.class)
@@ -104,10 +116,10 @@ public class Student {
    }
 
    public void setPhoneNumber(String phoneNumber) {
-      if(phoneNumbers.isEmpty()) {
+      if (phoneNumbers.isEmpty()) {
          addPhoneNumber(new PhoneNumber(phoneNumber));
-      }else {
-        this.phoneNumbers.set(0, new PhoneNumber(phoneNumber));
+      } else {
+         this.phoneNumbers.set(0, new PhoneNumber(phoneNumber));
       }
    }
 
@@ -142,7 +154,7 @@ public class Student {
    }
 
    public void setClasses(List<ScheduledClass> classes) {
-      if(classes != null) {
+      if (classes != null) {
          this.classes.clear();
          this.classes.addAll(classes);
       }

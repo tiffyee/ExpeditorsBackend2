@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import ttl.larku.LarkUConfig;
+import ttl.larku.jconfig.LarkUConfig;
 import ttl.larku.domain.Course;
 import ttl.larku.domain.Student;
 import ttl.larku.service.CourseDaoService;

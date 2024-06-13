@@ -12,17 +12,16 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockHttpServletResponse;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
-import ttl.larku.controllers.rest.CourseRestController;
-import ttl.larku.controllers.rest.StudentRestController;
 import ttl.larku.controllers.rest.UriCreator;
 import ttl.larku.domain.Course;
 import ttl.larku.service.CourseService;
@@ -44,11 +43,14 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 
+//Note - @WebMvcTest does not work well with @WithMockUser
 //@WebMvcTest(controllers = CourseRestController.class)
-@WebMvcTest(controllers = {StudentRestController.class, CourseRestController.class })
-//@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK)
+//@WebMvcTest(controllers = {StudentRestController.class, CourseRestController.class })
+
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK)
 @AutoConfigureMockMvc
 @Tag("mvcslice")
+@WithMockUser(username = "bobby")
 public class CourseControllerSliceTest {
 
     @MockBean
